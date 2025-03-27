@@ -33,7 +33,7 @@ This is a **Spotify Clone** built using only **HTML & CSS**. The goal of this pr
 ## 📌 How to Use
 1. **Clone the repository:**  
    ```bash
-   git clone [your-repo-link]
+   git clone [https://github.com/CODER-RAHUL9038/PROJECTS]
    ```
 2. **Open `index.html` in a browser** and enjoy the Spotify Clone! 🎶
 
@@ -41,6 +41,6 @@ This is a **Spotify Clone** built using only **HTML & CSS**. The goal of this pr
 If you have suggestions or improvements, feel free to **fork the repo** and submit a PR. 🚀
 
 ## 🌟 Connect with Me
-💬 Let’s connect on **[LinkedIn](your-linkedin-link)** or check out my **GitHub** for more projects! 🚀  
+💬 Let’s connect on **[LinkedIn](https://www.linkedin.com/in/rahulshaw1998/)** or check out my **GitHub** for more projects! 🚀  
 
 🔍 **#CSS #WebDevelopment #SpotifyClone #FrontendDevelopment #100DaysOfCode #UIUX #Coding #LearnToCode**
