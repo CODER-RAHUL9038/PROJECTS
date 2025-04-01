@@ -1,0 +1,28 @@
+.img-fluid {
+    height: 250px; /* Adjust as needed */
+    width: 100%;
+    object-fit: cover;
+}
+.main{
+    margin-left: 1.25rem;
+}
+.course{
+    margin-left: 0.85rem;
+}
+body{
+    
+    background: url(./asset/back.png) no-repeat center center fixed;
+    background-size: cover;
+}
+.h2{
+    box-shadow: 5px 5px 8px black;
+}
+.hero{
+   
+    background: linear-gradient(to right, #5a9bd5, #3b6ea5, #265d8c);
+}
+.card-img-top{
+    height: 220px;  /* Set a fixed height for uniformity */
+    object-fit: cover;  /* Ensures the image fills the area without stretching */
+    width: 100%;
+}
