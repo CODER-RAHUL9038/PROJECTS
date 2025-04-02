@@ -1,17 +1,20 @@
-.img-fluid {
-    height: 250px; /* Adjust as needed */
+.why-choose-us .img-fluid {
+    height:250px; /* Adjust as needed */
     width: 100%;
     object-fit: cover;
 }
-.main{
-    margin-left: 1.25rem;
+/* testimonial card */
+.img-fluid {
+
+    height:100%; /* Adjust as needed */
+    width: 31rem;
+    object-fit: cover;
+    box-shadow: 15px 10px 10px black;
 }
-.course{
-    margin-left: 0.85rem;
-}
+
 body{
     
-    background: url(./asset/back.png) no-repeat center center fixed;
+    background: url(./asset/new1.jpg) no-repeat center center ;
     background-size: cover;
 }
 .h2{
@@ -19,10 +22,46 @@ body{
 }
 .hero{
    
-    background: linear-gradient(to right, #5a9bd5, #3b6ea5, #265d8c);
+    background: linear-gradient(to right, #7296b5, #1c324a, #1477cd);
 }
+/* course card */
 .card-img-top{
     height: 220px;  /* Set a fixed height for uniformity */
     object-fit: cover;  /* Ensures the image fills the area without stretching */
     width: 100%;
+}
+.why-choose-us-bg{
+    background-color:orange;
+}
+.course-section-bg{
+    background-color:orange;
+    margin-right: 40px;
+}
+.testi-bg{
+    background-color:orange;
+}
+
+/* .footer{
+    display: flex;
+    justify-content: space-evenly;
+} */
+
+@media ( min-width: 120px) and (max-width:990px){
+    .testimonial{
+        margin-right: 0.85rem;
+    }
+    .why-choose-us{
+        margin: auto;
+    }
+    .course-section{
+        margin-left:2rem;
+    }
+    .course-heading{
+        margin-right: 40px;
+    }
+    .navbar{
+        height: 5rem;
+    }
+    
+    
 }
