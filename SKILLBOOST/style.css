@@ -1,5 +1,5 @@
 .why-choose-us .img-fluid {
-    height:250px; /* Adjust as needed */
+    height:350px; /* Adjust as needed */
     width: 100%;
     object-fit: cover;
 }
@@ -14,7 +14,7 @@
 
 body{
     
-    background: url(./asset/new1.jpg) no-repeat center center ;
+    /* background: url(./asset/back.png) no-repeat center center fixed; */
     background-size: cover;
 }
 .h2{
