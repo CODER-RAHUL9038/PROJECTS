@@ -14,10 +14,9 @@ while(true){
     else if(req == "add"){
         let task =  prompt("Please enter the task you want to add ")
         todo.push(task)
-        for (elements of todo){
-            console.log(`Task:(${elements}) is added`)
-            console.log("---------")
-        }
+        console.log(`Task:(${task}) is added`)
+        console.log("---------")
+    
         
     }
     else if (req == "delete"){
