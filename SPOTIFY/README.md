@@ -11,7 +11,7 @@ This is a **Spotify Clone** built using only **HTML & CSS**. The goal of this pr
 ✅ **Dark Mode Theme** – Matched Spotify’s signature dark theme with sleek styling.  
 
 ## 🖼️ Screenshot
-![Spotify Clone Preview](https://drive.google.com/file/d/11lbuScDEufGKUNJu6HWo2rgPNB4-nfwU/view?usp=sharing)
+![Spotify Clone Preview]- https://drive.google.com/file/d/11lbuScDEufGKUNJu6HWo2rgPNB4-nfwU/view?usp=sharing
 
 ## 🛠️ Technologies Used
 - **HTML5** 📄
