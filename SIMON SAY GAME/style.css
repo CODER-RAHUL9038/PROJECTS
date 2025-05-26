@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    
+    background-image: url(/asset/Simon-1.jpg);
+    background-size: cover;
+    
+}
+.btn{
+    height: 200px;
+    width: 200PX;
+    border-radius: 20%;
+    border: 10px solid black;
+    margin: 2.5rem;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    
+}
+.red{
+    background-color: rgb(189, 26, 26);
+}
+.yellow{
+    background-color: rgb(189, 189, 10);
+}
+.green{
+    background-color: rgb(9, 151, 9);
+}
+.purple{
+    background-color: rgb(159, 12, 159);
+}
