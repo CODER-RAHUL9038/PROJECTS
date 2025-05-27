@@ -11,16 +11,20 @@ body{
     
 }
 .btn{
-    height: 200px;
-    width: 200px;
+    height: 9rem;
+    width: 9rem;
     border-radius: 20%;
     border: 10px solid black;
-    margin: 1rem 2.5rem 2.5rem 2.5rem;
+    margin: 1rem 2rem 2.5rem 2rem;
 }
 
 .btn-container{
     display: flex;
     justify-content: center;
+    height: 100vh;
+    margin-top: 0.5rem;
+   
+    
     
 }
 .red{
@@ -71,4 +75,21 @@ body.wrong {
     background-color: red;
     background-image: none; /* 👈 this hides the image temporarily */
  
+}
+body.correct {
+    background-color: rgb(14, 219, 14);
+    background-image: none; /* 👈 this hides the image temporarily */
+ 
+}
+
+#celebration-gif {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: url('/asset/monkey.gif') center center no-repeat;
+  background-size: cover;
+  z-index: 9999;
 }

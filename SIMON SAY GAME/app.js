@@ -34,19 +34,26 @@ function levelUp(){
     console.log(gameSeq)
     let randBtn = document.querySelector(`.${randColor}`);
     gameFlash(randBtn);
+    
 
 //     console.log(randIdx); // CHECKING PURPOSE ONLY
 //     console.log(randColor); // CHECKING PURPOSE ONLY
 //     console.log(randBtn); // CHECKING PURPOSE ONLY
 }
 
-// REUSABLE FLASH FUNCION
+// REUSABLE  GAME FLASH FUNCION
 function gameFlash(btn){
-    btn.classList.add('flash') // adding white background for 1 second 
+    setTimeout(() => {
+         btn.classList.add('flash')  
+    }, 500); // adding white background for few second
+
     setTimeout(() => {
          btn.classList.remove('flash')  // removing white background after  1 second  for giving flash effect
-    }, 200);
+    }, 1000);
+    setTimeout(gameBtnFlash,500) 
 }
+
+
 
 // REUSABLE USER FLASH FUNCION
 function userFlash(btn){
@@ -64,23 +71,53 @@ function checkAns(idx){
     // console.log("Current Level: ",level);
     if(userSeq[idx] === gameSeq[idx]){
         if(userSeq.length == gameSeq.length){
-            setTimeout(levelUp,500)
+            flashCorrectEffect()
+            setTimeout(success,500)
+            setTimeout(levelUp,2000)
         }
     }
     else{
         h2.innerHTML = `Game Over! Your score is <b> ${level}</b> <br> Press any key to start again`
-        let body = document.querySelector('body');
-        body.classList.add('wrong');
-        setTimeout(() => {
-        body.classList.remove('wrong');
-        }, 200)
+        flashWrongEffect()
         reset()
+        setTimeout( wrongSound, 200)
     }
 }
+function flashWrongEffect(){
+    let body = document.querySelector('body');
+    setTimeout(() => {
+    body.classList.add('wrong');
+    }, 500)
+    setTimeout(() => {
+    body.classList.remove('wrong');
+    }, 2000)
+}
+function flashCorrectEffect() {
+    let gif = document.getElementById('celebration-gif');
+    setTimeout(() => {
+        gif.style.display = 'block';
+    }, 400);
+
+    setTimeout(() => {
+        gif.style.display = 'none';
+    }, 2000);
+}
+
+
+// function flashCorrectEffect(){
+//     let body = document.querySelector('body');
+//     setTimeout(() => {
+//     body.classList.add('correct');
+//     }, 500)
+//     setTimeout(() => {
+//     body.classList.remove('correct');
+//     }, 1600)
+// }
 
 function btnPress() {
     let btn = this;
     userFlash(btn) // CALLING USER FLASH FUNCTION
+    btnClick()
     let userColor = btn.getAttribute('id');
     console.log(userColor);
     userSeq.push(userColor);
@@ -101,4 +138,21 @@ function reset(){
     gameSeq = [];
     userSeq= [];
     level = 0;
+}
+
+function btnClick(){
+    let audio = new Audio('sound/button.mp3')
+    audio.play()
+}
+function success(){
+    let audio = new Audio('sound/psy.mp3')
+    audio.play()
+}
+function wrongSound(){
+    let audio = new Audio('sound/wrong.mp3')
+    audio.play()
+}
+function gameBtnFlash(){
+    let audio = new Audio('sound/game.mp3')
+    audio.play()
 }
