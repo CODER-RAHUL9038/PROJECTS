@@ -1,16 +1,21 @@
+*{
+  margin: 0 0 0 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
     text-align: center;
-    
     background-image: url(/asset/Simon-1.jpg);
     background-size: cover;
+    overflow: hidden;
     
 }
 .btn{
     height: 200px;
-    width: 200PX;
+    width: 200px;
     border-radius: 20%;
     border: 10px solid black;
-    margin: 2.5rem;
+    margin: 1rem 2.5rem 2.5rem 2.5rem;
 }
 
 .btn-container{
@@ -29,4 +34,41 @@ body{
 }
 .purple{
     background-color: rgb(159, 12, 159);
+}
+.flash{
+    background-color:white ;
+}
+.userFlash{
+    background-color: black;
+}
+
+@media (max-width : 400px){
+    .btn{
+        height: 19vh;
+        width: 19vh;
+        margin: 6vh 2vh 2vh 2vh
+    }
+    body{
+        margin-top: 5vh;
+        overflow: hidden;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 100vh;  
+    }
+    .btn-container{
+        margin-top: 4vh;
+    }
+    h2 {
+    font-size: 1.3rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+    }
+    
+}
+
+body.wrong {
+    background-color: red;
+    background-image: none; /* 👈 this hides the image temporarily */
+ 
 }
