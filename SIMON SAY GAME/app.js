@@ -104,15 +104,7 @@ function flashCorrectEffect() {
 }
 
 
-// function flashCorrectEffect(){
-//     let body = document.querySelector('body');
-//     setTimeout(() => {
-//     body.classList.add('correct');
-//     }, 500)
-//     setTimeout(() => {
-//     body.classList.remove('correct');
-//     }, 1600)
-// }
+
 
 function btnPress() {
     let btn = this;
