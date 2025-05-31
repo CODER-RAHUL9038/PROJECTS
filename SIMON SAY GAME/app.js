@@ -3,6 +3,7 @@ let userSeq = [];
 let started = false;
 let level = 0;
 let h2 = document.querySelector('h2');
+let h3 = document.querySelector('h3');
 let btns = ["yellow","green","red","purple"]
 
 // FOR PRESS ANY KEY LOGIC
@@ -61,7 +62,7 @@ function userFlash(btn){
     btn.classList.add('userFlash') // adding white background for 1 second 
     setTimeout(() => {
          btn.classList.remove('userFlash')  // removing white background after  1 second  for giving flash effect
-    }, 200);
+    }, 100);
 }
 
 
@@ -80,7 +81,8 @@ function checkAns(idx){
     else{
         h2.innerHTML = `Game Over! Your score is <b> ${level}</b> <br> Press any key to start again`
         flashWrongEffect()
-        reset()
+        setTimeout(reset,200)
+        maxScore()
         setTimeout( wrongSound, 200)
     }
 }
@@ -88,10 +90,10 @@ function flashWrongEffect(){
     let body = document.querySelector('body');
     setTimeout(() => {
     body.classList.add('wrong');
-    }, 500)
+    }, 100)
     setTimeout(() => {
     body.classList.remove('wrong');
-    }, 2000)
+    }, 1500)
 }
 function flashCorrectEffect() {
     let gif = document.getElementById('celebration-gif');
@@ -122,16 +124,20 @@ function btnPress() {
 
 
 let allBtns = document.querySelectorAll('.btn');
-    for( btn of allBtns){
-        btn.addEventListener('click',btnPress);
-    }
+for( btn of allBtns){
+    btn.addEventListener('click',btnPress);
+}
 
-
+function maxScore(){
+    h3.innerText = `Top Score : ${level}`
+}
+    
 function reset(){
     started = false;
     gameSeq = [];
     userSeq= [];
     level = 0;
+    
 }
 
 function btnClick(){
