@@ -1,6 +1,6 @@
 
 
-let url = "http://universities.hipolabs.com/search?name=";
+let url = "https://universities.hipolabs.com/search?name=";
 
 let input = document.querySelector("input");
 let btn = document.querySelector("button");
@@ -23,10 +23,19 @@ btn.addEventListener("click", async () => {
 });
 
 function show(clgData) {
-  ul.innerText = ""
-  for (clgs of clgData) {
+  ul.innerText = "";
+
+  if (!Array.isArray(clgData)) {
     let li = document.createElement("li");
-    li.innerText = clgs.name;
-    ul.append(li)
+    li.innerText = "No college data found or an error occurred.";
+    ul.append(li);
+    return;
+  }
+
+  for (let clg of clgData) {
+    let li = document.createElement("li");
+    li.innerText = clg.name;
+    ul.append(li);
   }
 }
+
