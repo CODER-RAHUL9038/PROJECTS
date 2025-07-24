@@ -7,22 +7,21 @@
 .container {
   width: 100%;
   min-height: 100vh;
-  background-color: aqua;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
   align-items: start;
 }
 .todo {
   width: 100%;
-  max-width: 600px;
-  background-color: white;
+  max-width: 500px;
+  min-height: 350px;
   border-radius: 10px;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f3e9ff;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
   margin-top: 20px;
 }
 .todo h1 {
@@ -36,11 +35,10 @@
   height: 25px;
   width: 40px;
 }
-.todo  p {
-  margin-right: 20px;
+.todo p {
   font-size: 16px;
-  margin-bottom: 10px;
-  
+  margin: 2px auto;
+  color: #222222;
 }
 .form {
   width: 100%;
@@ -49,25 +47,160 @@
   align-items: center;
   margin-top: 10px;
 }
-.form input{
-    width: 50%;
-    padding: 10px;
-    border: 2px solid #000000;
-    border-radius: 20px;
-    font-size: 16px;
+.form input {
+  width: 50%;
+  height: 35px;
+  padding: 10px;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: #f160003b;  
 }
 .form input:focus {
   outline: none;
-  border-color: orangered
+  border-color: #6a11cb;
+  box-shadow: 0 0 5px rgba(106, 17, 203, 0.6);
 }
+
 .form button {
-    margin-left: 10px;
-    padding: 8px 8px;
-    border-radius: 10px;
-    background-color: blue;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+  margin-left: 10px;
+  padding: 8px 8px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #ff3604, #ff6a00);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
 }
+#taskList{
+  padding: 5px 0 0 40px;
+}
+
+#taskList li {
+  width: 100%;
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 8px 10px 50px;
+  position: relative;
+  margin: 8px 0;
+  background-color: rgba(19, 113, 229, 0.096);
+  font-size: 14px;
+  border-radius: 6px;
+}
+#taskList li::before {
+  content: "";
+  background-image: url(/asset/uncheck.svg);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 15px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#taskList li:hover {
+  background-color: #850d0d29;
+  border-radius: 6px;
+}
+#taskList li.checked {
+  text-decoration: line-through;
+  color: #888888;
+}
+#taskList li.checked::before {
+  background-image: url(/asset/checked.png);
+}
+#taskList li span{
+  position:absolute;
+  right: 20px;
+}
+
+/* Tablets (e.g., iPads) - between 768px and 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .todo {
+    max-width: 80%;         /* make todo box wider */
+    margin-top: 30px;
+  }
+  .form input {
+    width: 60%;            /* bigger input box */
+  }
+  .form button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+/* Large mobile phones & small tablets - up to 768px */
+@media (max-width: 768px) {
+  .todo {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+  .form {
+    flex-direction: column;        /* stack input and button vertically */
+  }
+  .form input {
+    width: 90%;
+    margin-bottom: 8px;
+  }
+  .form button {
+    margin-left: 0;
+    width: 50%;
+  }
+  #taskList{
+    padding-left: 10px;
+  }
+  #taskList li {
+    font-size: 14px;
+    padding: 10px 8px 10px 40px;   /* adjust padding */
+  }
+}
+
+/* Small mobile phones - up to 480px */
+@media (max-width: 480px) {
+  .todo h1 {
+    font-size: 18px;
+  }
+  .form input {
+    width: 100%;
+  }
+  .form button {
+    width: 60%;
+  }
+  #taskList li {
+    font-size: 12px;
+    padding: 8px 8px 8px 35px;
+  }
+  #taskList{
+    padding-left: 5px;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  font-size: 14px;
+  margin-left: 100px;  check this
+  width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
