@@ -19,7 +19,7 @@ It lets you:
 
 ## 🚀 **Live Demo**
 > [✨ Click here to try Listify on Netlify](https://listify-savetask.netlify.app/)  
-*(Replace `#` with your Netlify link after deploying)*
+
 
 ---
 
