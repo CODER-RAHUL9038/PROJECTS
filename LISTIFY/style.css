@@ -14,21 +14,23 @@
 }
 .todo {
   width: 100%;
-  max-width: 500px;
-  min-height: 350px;
+  max-width: 900px;
+  min-height: 500px;
   border-radius: 10px;
   background-color: #f3e9ff;
   padding: 10px;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  margin-top: 20px;
+  margin-top: 30px;
+  position: sticky;
 }
 .todo h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 5px;
+  margin: 5px auto;
+  font-size: 3rem;
 }
 .todo h1 img {
   margin-top: px;
@@ -45,16 +47,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .form input {
-  width: 50%;
-  height: 35px;
+  width: 60%;
+  height: 40px;
   padding: 10px;
   border: 2px solid #000000;
   border-radius: 20px;
   font-size: 16px;
-  background-color: #f160003b;  
+  background-color: #f160003b;
 }
 .form input:focus {
   outline: none;
@@ -70,10 +72,14 @@
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 12px;
+  
 }
-#taskList{
-  padding: 5px 0 0 40px;
+#taskList {
+  padding: 5px 0 0 30px;
+  margin-top: 20px;
+  max-width: 90%;
+  margin-left: 20px;
+  margin-bottom: 40px;
 }
 
 #taskList li {
@@ -84,7 +90,7 @@
   position: relative;
   margin: 8px 0;
   background-color: rgba(19, 113, 229, 0.096);
-  font-size: 14px;
+  font-size: 17px;
   border-radius: 6px;
 }
 #taskList li::before {
@@ -112,23 +118,47 @@
 #taskList li.checked::before {
   background-image: url(/asset/checked.png);
 }
-#taskList li span{
-  position:absolute;
+#taskList li span {
+  position: absolute;
   right: 20px;
 }
+
+.footer {
+  max-width: 30%;
+  text-align: center;
+  padding: 3px 0;
+  color: #fff;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  font-size: 14px;
+  width: 60%;
+  font-weight: bold;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 10px;
+}
+
+
 
 /* Tablets (e.g., iPads) - between 768px and 1024px */
 @media (max-width: 1024px) and (min-width: 768px) {
   .todo {
-    max-width: 80%;         /* make todo box wider */
+    max-width: 80%; /* make todo box wider */
     margin-top: 30px;
   }
   .form input {
-    width: 60%;            /* bigger input box */
+    width: 60%; /* bigger input box */
   }
   .form button {
     font-size: 14px;
     padding: 10px 12px;
+  }
+  #taskList {
+    margin-bottom: 40px;
+  }
+  .footer{
+   max-width: 40%;
   }
 }
 
@@ -139,68 +169,60 @@
     margin-top: 20px;
   }
   .form {
-    flex-direction: column;        /* stack input and button vertically */
+    flex-direction: column; /* stack input and button vertically */
   }
   .form input {
-    width: 90%;
+    width: 60%;
     margin-bottom: 8px;
   }
   .form button {
     margin-left: 0;
-    width: 50%;
+    width: 30%;
   }
-  #taskList{
+  #taskList {
+    max-width: 80%;
     padding-left: 10px;
+    margin: 10px 0 40px 50px;
+    min-height: 350px;
   }
   #taskList li {
     font-size: 14px;
-    padding: 10px 8px 10px 40px;   /* adjust padding */
+    padding: 10px 8px 10px 40px; /* adjust padding */
+  }
+  .footer{
+   max-width: 60%;
   }
 }
 
 /* Small mobile phones - up to 480px */
 @media (max-width: 480px) {
+  /* .todo{
+    max-height: 80px;
+  } */
   .todo h1 {
-    font-size: 18px;
+    font-size: 30px;
   }
   .form input {
-    width: 100%;
+    width: 90%;
+    
   }
   .form button {
     width: 60%;
+    margin-top: 10px;
   }
   #taskList li {
-    font-size: 12px;
-    padding: 8px 8px 8px 35px;
+    font-size: 14px;
+    padding: 8px 8px 8px 40px;
+    margin: 20px 0 20px 0;
   }
-  #taskList{
+  #taskList {
     padding-left: 5px;
+    margin-left: 25px;
   }
+  .footer{
+   max-width: 100%;
+   }
+  
 }
-
-.footer {
-  text-align: center;
-  padding: 10px 0;
-  color: #fff;
-  background: linear-gradient(45deg, #6a11cb, #2575fc);
-  font-size: 14px;
-  margin-left: 100px;  check this
-  width: 60%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
