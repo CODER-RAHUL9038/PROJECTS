@@ -53,7 +53,6 @@ h1 span {
   border: 0;
   outline: 0;
   font-size: 28px;
-  
 }
 .display img {
   width: 35px;
@@ -75,29 +74,76 @@ h1 span {
   font-size: 24px;
   color: white;
 }
+
+/* TOAST ANIMATION */
+#toast {
+  display: none;
+  color: black;
+  font-size: 22px;
+}
+.clicked {
+  transform: scale(0.85);
+}
+
 .container button img {
   width: 30px;
   margin-right: 20px;
 }
 .footer {
-width: 400px;
-height: 40px;
+  width: 400px;
+  height: 40px;
   color: #002339; /* dark text over neon gradient */
   text-align: center;
   padding: 6px;
   color: white;
   font-size: 16px;
-  margin: 20px auto;
+  margin: 30px auto;
   border-radius: 6px;
-  
+  font-style: italic;
 }
 
+@media (min-width: 1284px) {
+  h1 {
+    margin: 40px 50px 20px 90px;
+    font-size: 60px;
+    font-weight: 400;
+  }
+  .display {
+    width: 600px;
+    height: 60px;
+    margin: 40px 0px 5px 90px;
+  }
+  button img {
+    width: 30px;
+    height: 35px;
+  }
+  .container button {
+    font-size: 25px;
+    width: 250px;
+    height: 50px;
+    margin: 40px 0 0 90px;
+  }
+  .display input {
+    font-size: 25px;
+  }
+  .display img {
+    width: 30px;
+  }
+  .container button {
+    font-size: 18px;
+    width: 260px;
+  }
+  .footer {
+    margin: 140px auto;
+    font-size: 16px;
+  }
+}
 @media (min-width: 768px) and (max-width: 986px) {
   .main-icon {
     transform: scale(0.9);
   }
   h1 {
-    margin: 30px 50px 20px 90px;
+    margin: 20px 50px 20px 90px;
     font-size: 38px;
     font-weight: 400;
   }
@@ -115,6 +161,10 @@ height: 40px;
   .container button {
     font-size: 18px;
     width: 250px;
+  }
+  .footer {
+    margin: 30px auto;
+    font-size: 14px;
   }
 }
 
@@ -145,11 +195,14 @@ height: 40px;
     height: 50px;
   }
   .container button img {
-  width: 22px;
-  margin-right: 20px;
+    width: 22px;
+    margin-right: 20px;
+  }
+  .footer {
+    margin: 30px auto;
+    font-size: 14px;
+  }
 }
-}
-
 
 @media (min-width: 480px) and (max-width: 576px) {
   .main-icon {
@@ -165,11 +218,18 @@ height: 40px;
     height: 50px;
     margin: 30px 0px 5px 40px;
   }
+  #toast {
+    display: none;
+    color: black;
+    font-size: 18px;
+    margin-right: 10px;
+  }
   .display input {
     font-size: 18px;
   }
   .display img {
     width: 25px;
+    margin-right: 10px;
   }
   .container button {
     font-size: 16px;
@@ -178,7 +238,104 @@ height: 40px;
     height: 45px;
   }
   .container button img {
-  width: 20px;
-  margin-right: 20px;
+    width: 20px;
+    margin-right: 20px;
+  }
+  .footer {
+    margin: 20 auto;
+    font-size: 14px;
+  }
 }
+
+@media (min-width: 420px) and (max-width: 480px) {
+  .main-icon {
+    transform: scale(0.7);
+  }
+  h1 {
+    margin: 20px 50px 20px 10px;
+    font-size: 31px;
+    font-weight: 500;
+  }
+  .display {
+    width: 340px;
+    height: 50px;
+    margin: 30px 0px 5px 10px;
+  }
+  .display input {
+    font-size: 16px;
+    width: 220px;
+  }
+  #toast {
+    display: none;
+    color: black;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .display img {
+    width: 25px;
+    margin-right: 0px;
+  }
+  .container button {
+    font-size: 16px;
+    width: 220px;
+    margin: 20px 0 0 10px;
+    height: 45px;
+  }
+  .container button img {
+    width: 20px;
+    margin-right: 20px;
+  }
+  .footer {
+    margin: 30px auto;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .main-icon {
+    transform: scale(0.7);
+    margin: 5px auto;
+  }
+  h1 {
+    margin: 60px 50px 20px 10px;
+    font-size: 31px;
+    font-weight: 500;
+  }
+  .display {
+    width: 330px;
+    height: 50px;
+    margin: 50px 0px 5px 10px;
+  }
+  .display input {
+    font-size: 18px;
+    width: 180px;
+  }
+  #toast {
+    display: none;
+    color: black;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .display img {
+    width: 25px;
+    margin-right: 5px;
+  }
+  .container button {
+    font-size: 16px;
+    width: 220px;
+    margin: 40px 0 0 10px;
+    height: 45px;
+  }
+  .container button img {
+    width: 20px;
+    margin-right: 20px;
+  }
+  .footer {
+    margin: auto;
+    font-size: 14px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
+  }
 }
