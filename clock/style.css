@@ -97,6 +97,12 @@ body::before {
   border-radius: 50%;
   z-index: 1;
 }
+.credit {
+  position: absolute;
+  top: 65%;
+  color: #ffffff;
+  font-size: clamp(20%, 2vw, 100%);
+}
 
 .hour-hand {
   position: absolute;
