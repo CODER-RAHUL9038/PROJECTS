@@ -4,59 +4,114 @@
   box-sizing: border-box;
 }
 body {
-  background-color: lightblue;
+  background-image: url(p4.jpg);
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100dvh;
   width: 100dvw;
 }
+
 .calculator {
-  margin: 50px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: auto;
+  margin: max(10px, 2vh);
+  gap: 1%;
+  justify-items: center;
   align-items: center;
-  height: min(500px, 120vw);
-  width: min(400px, 75vw);
-  border: 5px solid black;
+  border-radius: 8px;
+  width: clamp(350px, 35vw, 400px);
+  aspect-ratio: 3/4;
+  padding: 10px;
+  background: linear-gradient(135deg, #ff9966, #ff5e62); /* orange to pink */
+  background: linear-gradient(135deg, #2d3436, #000000);
+  box-shadow: 10px 25px 10px rgba(0, 0, 0, 0.4);
+}
+.credit {
+  display: grid;
+  grid-column: 1 / span 4;
+  grid-row: 2 / span 1;
+  color: white;
+  font-size: clamp(5px, 7vw, 16px);
 }
 .button {
-  font-size: clamp(2vw, 10vw, 150%);
-}
-.display {
-  min-width: 90%;
-  height: min(60px,30vw);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(2vw, 12vw, 160%);
-  border: 2px solid black;
-}
-.first-row,
-.second-row,
-.third-row,
-.fourth-row,
-.fifth-row {
-  display: flex;
-  height: 10%;
-  min-width: 100%;
-  justify-content: space-evenly;
-}
-.first-row button {
-  margin: 50px;
+  padding: 15% 25%;
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(5px, 10vw, 18px);
+  font-weight: 900;
+  background: linear-gradient(145deg, #1c6dd0, #0d1f3f);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0px 6px 15px rgba(24, 88, 190, 0.6);
+  transition: 0.2s ease-in-out;
 }
 
-.second-row {
-  display: flex;
-  justify-content: space-evenly;
+.button:hover {
+  background: linear-gradient(145deg, #4a5058, #3a3f47);
 }
-.third-row {
-  display: flex;
+.display {
+  width: clamp(50px, 80vw, 325px);
+  height: clamp(5px, 20vw, 70px);
+  grid-column: 1 / span 4;
+  display: grid;
+  padding-right: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: clamp(5px, 10vw, 30px);
+  background: linear-gradient(
+    135deg,
+    #141e30,
+    #254b78
+  ); /* dark navy gradient */
+  color: #fff;
 }
-.fourth-row {
-  display: flex;
+
+.equal {
+  display: grid;
+  grid-column: 3 / span 2;
+  place-content: center;
+  font-size: clamp(5px, 10vw, 40px);
+  padding: 1% 35%;
+  color: white;
+
+  background: rgba(243, 156, 18, 0.85); /* Vibrant Amber/Orange */
 }
-.fifth-row {
-  display: flex;
+
+.dot,
+.mul,
+.plus,
+.minus {
+  font-size: clamp(5px, 10vw, 28px);
+  padding: 10% 20%;
+}
+
+.dot {
+  font-size: clamp(5px, 10vw, 28px);
+  padding: 10% 20%;
+  background: rgba(142, 68, 173, 0.85); /* Rich Violet */
+}
+
+.mul {
+  font-size: clamp(5px, 10vw, 28px);
+  padding: 10% 20%;
+  background: rgba(220, 53, 69, 0.85); /* red for multiply */
+  color: white;
+}
+
+.plus {
+  font-size: clamp(5px, 10vw, 28px);
+  padding: 10% 20%;
+  background: rgba(40, 167, 69, 0.85); /* green for plus */
+  color: white;
+}
+
+.minus {
+  font-size: clamp(5px, 10vw, 28px);
+  padding: 10% 20%;
+  background: rgba(0, 217, 255, 0.89); /* blue for minus */
+  color: white;
 }
