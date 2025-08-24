@@ -84,7 +84,8 @@ body {
 .dot,
 .mul,
 .plus,
-.minus {
+.minus,
+.div {
   font-size: clamp(5px, 10vw, 28px);
   padding: 10% 20%;
 }

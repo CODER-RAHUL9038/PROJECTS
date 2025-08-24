@@ -2,50 +2,40 @@ let btns = document.querySelectorAll(".button");
 let display = document.querySelector(".display");
 let delBtn = document.querySelector(".delete");
 let equalBtn = document.querySelector(".equal");
-const operators = ["+", "-", "*", "/"];
+const operators = ["+", "-", "*", "/", "÷", "x"];
 
 let str = "";
+
 for (let btn of btns) {
   btn.addEventListener("click", function (e) {
-    if (display.innerText === "00") {
-      display.innerText = ""; // clear placeholder when user clicks
-    }
-
-    // EVAL EQUAL
-    if (e.target.innerText == "=") {
-      if (!operators.includes(str.slice(-1)) && (display.innerText !== "00")) {
-        try {
-          str = eval(str).toString();
-          display.innerText = str;
-        } catch (error) {
-          display.innerText = "Error";
-          str = "";
-        }
-      }
-
-      //AC
+    if (e.target.innerText == "DEL") {
+      str = str.slice(0, -1);
+      display.innerText = str;
     } else if (e.target.innerText == "AC") {
-      display.innerText = "00";
-      str = "";
-    }
-    //DELETE
-    else if (e.target.innerText == "DEL") {
-      if (str.endsWith(" ")) {
-        str = str.slice(0, -3);
+      str = "00";
+      display.innerText = str;
+    } else if (e.target.innerText == "=") {
+      try {
+        str = str
+          .replace(/\b0+(\d+)/g, "$1")
+          .replace(/x/g, "*")
+          .replace(/÷/g, "/");
+        str = eval(str).toString();
         display.innerText = str;
-      } else {
-        str = str.slice(0, -1);
-        display.innerText = str;
+      } catch (error) {
+        display.innerText = "Error";
+        str = "";
+        console.log(error);
       }
-      // APPENDING EACH NUMBERS ON DISPLAY
     } else {
-      let value = e.target.innerText;
-      // CHECKING CONSECUTIVE OPERATORS
-      if (operators.includes(value) && operators.includes(str.slice(-1))) {
-        return; // do nothing if last char is also an operator
+      // No consecutive operator logic
+      if (
+        operators.includes(e.target.innerText) &&
+        operators.includes(str.slice(-1))
+      ) {
+        return;
       }
-
-      str = str + e.target.innerText;
+      str += e.target.innerText;
       display.innerText = str;
     }
   });
