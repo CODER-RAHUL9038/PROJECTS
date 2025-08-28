@@ -40,19 +40,19 @@ Open the browser and go to the /posts route to view the app.
 
 ### Code Base
 Displays the project file structure  
-![Code Base](./snap/image1.png)
+![Code Base](./snap/image1.jpg)
 
 ### Home Page
 View all posts in a list  
-![Home Page](./snap/image2.png)
+![Home Page](./snap/image2.jpg)
 
 ### Post in Detail
 See an individual post with caption and image  
-![Post in Detail](./snap/image3.png)
+![Post in Detail](./snap/image3.jpg)
 
 ### Edit Post
 Form to edit captions and update images  
-![Edit Post](./snap/image4.png)
+![Edit Post](./snap/image4.jpg)
 
 
 🔮 Future Improvements
