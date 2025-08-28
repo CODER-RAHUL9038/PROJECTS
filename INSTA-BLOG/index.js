@@ -1,11 +1,13 @@
 const express = require("express");
-const { url } = require("inspector");
+
 const multer = require("multer");
 const { diskStorage } = require("multer");
 const app = express();
 const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const methodOverride = require("method-override");
+
+const fs = require("fs");
 
 // Setting middlewares
 // Setting EJS
@@ -18,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
 app.use(methodOverride("_method"));
 
-port = 8080;
+const port = process.env.PORT || 8080;
 
 // Starting server
 
@@ -59,6 +61,10 @@ app.get("/posts/new", (req, res) => {
   let id = uuidv4();
   res.render("new.ejs", { id });
 });
+
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
 
 //Setting storage
 
