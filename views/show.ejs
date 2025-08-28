@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detailed Post</title>
+    <link rel="stylesheet" href="/css/show.css" />
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a href="/posts" class="back-link">⬅ Back to Feed</a>
+    <div class="container">
+      <div class="post-card">
+        <!-- Post Header -->
+        <div class="post-header">
+          <img src="<%= post.image %>" class="avatar" alt="Profile" />
+          <span class="username"><%= post.username %></span>
+        </div>
+
+        <!-- Caption -->
+        <div class="post-caption">
+          <small style="color: #999">Post ID: <%= post.id %></small>
+          <p><strong><%= post.username %></strong> <%= post.caption %></p>
+          
+        </div>
+        <!-- Post Image -->
+        <img src="<%= post.image %>" alt="Post Image" class="post-image" />
+      </div>
+    </div>
+  </body>
+</html>

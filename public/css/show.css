@@ -1,0 +1,72 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100dvh;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+.post-card {
+  margin-top: min(20%, 15%);
+  margin-left: min(8px, 15%);
+  margin-right: min(8px, 15%);
+  margin: min(20%, 30%) min(8px, 15%);
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+  margin-right: 12px;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 300px;
+  display: block;
+  border-radius: 8px;
+}
+
+.post-caption {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #3897f0;
+  font-weight: 600;
+  position: fixed;
+  left: 10px;
+}
+/* Submit button style */
