@@ -1,82 +1,66 @@
-# Insta-Blog
+Insta-Blog
 
-A simple Instagram-like blog built with **Node.js**, **Express**, **EJS**, and **Multer** for image uploads.
+A simple Instagram-like blog built with Node.js, Express, EJS, and Multer for image uploads.
 
-## 🚀 Features
+🚀 Features
 
-- View all posts  
-- View a post by ID  
-- Create a new post (with image upload)  
-- Edit/update a post  
-- Delete a post  
+View all posts
 
-## 📝 API Endpoints
+View a single post by ID
 
-### 1️⃣ Get all posts
-```http
-GET /posts
+Create a new post with image upload
 
+Edit and update existing posts
 
-2. Get a post by ID
-GET /posts/:id
+Delete posts
 
+📝 API Endpoints
 
-3. Create a post
+Get all posts: Retrieve a list of all posts
 
-Form Data:
+Get a post by ID: Retrieve a single post using its ID
 
-caption: String
+Create a post: Add a new post with caption and optional image
 
-image: File (uploaded via Multer)
-POST /posts
+Update a post: Edit a post’s caption and optionally replace its image
 
-4. Update a post
-
-Form Data:
-
-newCaption: String
-
-image: File (optional)
-PUT /posts/:id
-
-5. Delete a post
-DELETE /posts/:id
+Delete a post: Remove a post by ID
 
 ⚡ Installation & Setup
 
-1. Clone this repo
-git clone https://github.com/your-username/insta-blog.git
-cd insta-blog
+Clone the repository and navigate to the project folder.
 
-2. Install dependencies
-npm install
+Install project dependencies using Node.js.
 
-3. Start the server
-node index.js
+Start the server with Node or use nodemon for automatic restart.
 
-Or use nodemon for auto-restart:
-npx nodemon index.js
-
-4. Open in browser
-
+Open the browser and go to the /posts route to view the app.
 
 ## 🏠 Screenshots
 
 ### Code Base
+Displays the project file structure  
 ![Code Base](./snap/image1.png)
 
 ### Home Page
+View all posts in a list  
 ![Home Page](./snap/image2.png)
 
 ### Post in Detail
+See an individual post with caption and image  
 ![Post in Detail](./snap/image3.png)
 
 ### Edit Post
+Form to edit captions and update images  
 ![Edit Post](./snap/image4.png)
 
-## 🔮 Future Improvements
 
-- Add user authentication (login/signup)
-- Store posts in a real database (MongoDB / PostgreSQL)
-- Add likes & comments feature
-- Enhance UI with advanced styling
+🔮 Future Improvements
+
+Add user authentication (login/signup)
+
+Store posts in a real database (MongoDB or PostgreSQL)
+
+Add likes and comments functionality
+
+Improve the UI with advanced styling
