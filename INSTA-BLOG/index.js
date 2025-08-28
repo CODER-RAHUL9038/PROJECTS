@@ -12,7 +12,7 @@ const fs = require("fs");
 // Setting middlewares
 // Setting EJS
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "Views"));
+app.set("views", path.join(__dirname, "views"));
 
 // Setting middlewares
 app.use(express.static(path.join(__dirname, "public")));
@@ -122,9 +122,9 @@ app.put("/posts/:id", upload.single("image"), (req, res) => {
   if (!post) return res.send("Post not found");
 
   let { newCaption, username } = req.body;
-  if (!username.startsWith("@")) {
-    username = "@" + username;
-  }
+  if (username && !username.startsWith("@")) {
+  username = "@" + username;
+}
   post.username = username;
   post.caption = newCaption;
 
