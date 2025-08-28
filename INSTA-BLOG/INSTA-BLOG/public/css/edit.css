@@ -1,0 +1,129 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100dvh;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+.post-card {
+  margin-top: clamp(60px,60vw, 8px);
+  margin-left: min(8px, 15%);
+  margin-right: min(8px, 15%);
+
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+  margin-right: 12px;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.post-image {
+  width: 100%;
+  margin: 10px 0px 0 10px;
+
+}
+
+.post-caption {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #3897f0;
+  font-weight: 600;
+  position: fixed;
+  left: 10px;
+}
+/* Submit button style */
+button[type="submit"] {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #0095f6; /* Instagram blue */
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover effect */
+button[type="submit"]:hover {
+  background-color: #0073d1;
+  transform: scale(1.05);
+}
+
+/* Active / click effect */
+button[type="submit"]:active {
+  background-color: #0056a0;
+  transform: scale(0.98);
+}
+
+textarea {
+  padding: 10px 20px;
+  width: clamp(10%, 80vw, 80%);
+  min-height: 100px; /* adjusts height */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  resize: vertical; /* allow vertical resize only */
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+textarea:focus {
+  border-color: #0095f6;
+  box-shadow: 0 0 5px rgba(0, 149, 246, 0.5);
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #2575fc;
+  outline: none;
+  box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="/css/edit.css" />
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a href="/posts" class="back-link">⬅ Back to Feed</a>
+    
+    <div class="container">
+         
+      <div class="post-card">
+        <!-- Post Header -->
+        <div class="post-header">
+          <img src="<%= post.image %>" class="avatar" alt="Profile" />
+          <span class="username"><%= post.username %></span>
+        </div>
+
+        <!--  Edit Caption -->
+        <div class="post-caption">
+          <small style="color: #999">Post ID: <%= post.id %></small>
+          <p><strong><%= post.username %></strong> 
+         <form   method="post" action="/posts/<%= post.id %>?_method=PUT" enctype="multipart/form-data">
+            <input type="text" name="username" placeholder="Update username" required>
+            <textarea  required  name="newCaption" id="caption" ><%= post.caption %></textarea>
+             <input type="file" name="image" class="post-image" accept="images/*" required>
+            <button type="submit">submit</button>
+         </form>
+          
+        </div>
+        
+    </div>
+  </body>
+</html>
