@@ -1,0 +1,67 @@
+.why-choose-us .img-fluid {
+    height:350px; /* Adjust as needed */
+    width: 100%;
+    object-fit: cover;
+}
+/* testimonial card */
+.img-fluid {
+
+    height:100%; /* Adjust as needed */
+    width: 31rem;
+    object-fit: cover;
+    box-shadow: 15px 10px 10px black;
+}
+
+body{
+    
+    /* background: url(./asset/back.png) no-repeat center center fixed; */
+    background-size: cover;
+}
+.h2{
+    box-shadow: 5px 5px 8px black;
+}
+.hero{
+   
+    background: linear-gradient(to right, #7296b5, #1c324a, #1477cd);
+}
+/* course card */
+.card-img-top{
+    height: 220px;  /* Set a fixed height for uniformity */
+    object-fit: cover;  /* Ensures the image fills the area without stretching */
+    width: 100%;
+}
+.why-choose-us-bg{
+    background-color:orange;
+}
+.course-section-bg{
+    background-color:orange;
+    margin-right: 40px;
+}
+.testi-bg{
+    background-color:orange;
+}
+
+/* .footer{
+    display: flex;
+    justify-content: space-evenly;
+} */
+
+@media ( min-width: 120px) and (max-width:990px){
+    .testimonial{
+        margin-right: 0.85rem;
+    }
+    .why-choose-us{
+        margin: auto;
+    }
+    .course-section{
+        margin-left:2rem;
+    }
+    .course-heading{
+        margin-right: 40px;
+    }
+    .navbar{
+        height: 5rem;
+    }
+    
+    
+}

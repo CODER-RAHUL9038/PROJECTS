@@ -1,0 +1,219 @@
+*{
+  margin: 0 0 0 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    text-align: center;
+    background-image: url(/asset/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;  
+    overflow: hidden;
+    
+}
+.btn{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 20%;
+    border: 10px solid black;
+    margin: 0.5rem 2rem 2.5rem 2rem;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+   
+    
+    
+}
+.red {
+  background-color: #E53935;  /* Bright Red */
+  border-color: #B71C1C;      /* Darker Red border */
+}
+
+.green {
+  background-color: #43A047;  /* Medium Green */
+  border-color: #1B5E20;      /* Darker Green border */
+}
+
+.purple {
+  background-color: #8E24AA;  /* Vibrant Purple */
+  border-color: #4A148C;      /* Dark Purple border */
+}
+
+.yellow {
+  background-color: #FDD835;  /* Bright Yellow */
+  border-color: #F9A825;      /* Dark Yellow border */
+}
+
+/* .flash{
+    background-color:white ;
+}
+.userFlash{
+    background-color: black;
+} */
+
+.flash {
+  background-color: #1e90ff; /* neon blue */
+  box-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff, 0 0 40px #1e90ff;
+  animation: flashAnimation 0.3s ease forwards;
+}
+
+.userFlash {
+  background-color: #00ffea; /* neon cyan */
+  box-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 30px #00ffea, 0 0 40px #00ffea;
+  animation: userFlashAnimation 0.3s ease forwards;
+}
+
+@keyframes flashAnimation {
+  0% {
+    background-color: #1e90ff;
+    box-shadow: 0 0 20px #1e90ff, 0 0 40px #1e90ff, 0 0 60px #1e90ff, 0 0 80px #1e90ff;
+  }
+  100% {
+    background-color: inherit;
+    box-shadow: none;
+  }
+}
+
+@keyframes userFlashAnimation {
+  0% {
+    background-color: #00ffea;
+    box-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea, 0 0 60px #00ffea, 0 0 80px #00ffea;
+  }
+  100% {
+    background-color: inherit;
+    box-shadow: none;
+  }
+}
+body.wrong {
+  background-color: #ff1744; /* neon red */
+  box-shadow: 0 0 20px #ff1744, 0 0 40px #ff1744, 0 0 60px #ff1744;
+  background-image: none; /* hides image temporarily */
+}
+
+body.correct {
+    background-color: rgb(14, 219, 14);
+    background-image: none; /* 👈 this hides the image temporarily */
+ 
+}
+
+#celebration-gif {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: url('/asset/monkey.gif') center center no-repeat;
+  background-size: cover;
+  z-index: 9999;
+}
+
+h4 {
+  font-size: 10px;
+  color: white;
+  margin-top: 5rem;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translate(-50%);
+    
+      
+}
+
+
+.level-up-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #adff2f; /* Neon green-yellow */
+  text-shadow: 0 0 10px #adff2f, 0 0 20px #7fff00, 0 0 30px #32cd32;
+  animation: pulse 1.5s infinite;
+  margin-top: 20px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.85; }
+}
+
+
+h1 {
+  font-size: 2.8rem;
+ 
+  font-weight: bold;
+  color: yellow;
+  text-shadow: 0 0 8px #ffcc00, 0 0 16px #ffaa00;
+  animation: glow 2s ease-in-out infinite alternate;
+
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-shadow: 0 0 4px #ffffff, 0 0 10px #00ffff;
+ 
+}
+h3{
+  color: white;
+  margin-top: 1rem;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffcc00;
+  }
+  to {
+    text-shadow: 0 0 20px #ffaa00, 0 0 30px #ff6600;
+  }
+}
+
+
+@media (max-width: 600px){
+    .btn{
+        height: 19vh;
+        width: 19vh;
+        margin: 6vh 2vh 2vh 2vh
+    }
+    body{
+        margin-top: 0.5rem;
+        overflow: hidden;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 100vh;  
+        
+    }
+    .btn-container{
+        
+        height: 50vh;
+        
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .level-up-text{
+        font-size: 1.5rem;
+        margin-top: 3rem;
+    }
+    h4{
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translate(-50%);
+      text-align: center;
+      font-size: 1rem;
+    }
+    
+}
+
+
+
+
