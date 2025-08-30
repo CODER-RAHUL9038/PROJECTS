@@ -35,7 +35,7 @@ body {
   grid-column: 1 / span 4;
   grid-row: 2 / span 1;
   color: white;
-  font-size: clamp(5px, 7vw, 16px);
+  font-size: clamp(5px, 7vw, 15px);
 }
 .button {
   padding: 15% 25%;
@@ -61,14 +61,26 @@ body {
   padding-right: 10px;
   justify-content: flex-end;
   align-items: center;
-  font-size: clamp(5px, 10vw, 30px);
+  /* font-size: clamp(5px, 8vw, 30px); */
+  font-size: 2rem;
+
   background: linear-gradient(
     135deg,
     #141e30,
     #254b78
   ); /* dark navy gradient */
-  color: #fff;
+  color: white;
+  overflow: hidden;
+
+  white-space: nowrap;
 }
+
+.display:empty::before {
+  content: "0";
+  color: gray;
+  font-size: 2rem;
+}
+
 
 .equal {
   display: grid;
