@@ -2,7 +2,7 @@ let btns = document.querySelectorAll(".button");
 let display = document.querySelector(".display");
 let delBtn = document.querySelector(".delete");
 let equalBtn = document.querySelector(".equal");
-const operators = ["+", "-", "*", "/", "÷", "x"];
+const operators = ["+", "-", "*", "/", "÷", "x", "."];
 
 let str = "";
 
@@ -12,7 +12,6 @@ document.addEventListener("keydown", function (e) {
 
   // allow numbers 0-9
   if (key >= "0" && key <= "9") {
-    
     // More than 30 Characters
     if (display.innerText.length > 28) {
       alert("Maximum Character Exceeds!");
@@ -31,7 +30,7 @@ document.addEventListener("keydown", function (e) {
   }
 
   // allow operators
-  if (["+", "-", "*", "/"].includes(key)) {
+  if (["+", "-", "*", "/", "."].includes(key)) {
     if (operators.includes(key) && operators.includes(str.slice(-1))) {
       return;
     }
