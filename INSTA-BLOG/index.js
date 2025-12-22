@@ -121,10 +121,10 @@ app.put("/posts/:id", upload.single("image"), (req, res) => {
   let post = posts.find((p) => id == p.id);
   if (!post) return res.send("Post not found");
 
-  let { newCaption, username } = req.body;
+  let { caption: newCaption, username } = req.body;
   if (username && !username.startsWith("@")) {
-  username = "@" + username;
-}
+    username = "@" + username;
+  }
   post.username = username;
   post.caption = newCaption;
 
