@@ -1,13 +1,66 @@
-🚀 Projects Repository
-
-Welcome to the Projects repository! This repository contains all my Web Development projects, focusing on the MERN (MongoDB, Express.js, React.js, Node.js) stack and other web technologies. Each project is well-structured and follows best coding practices.
+Welcome to the Projects Repository!
+This repository contains all my Web Development projects, focusing mainly on React & MERN stack along with core web technologies.
+Each project is well-structured, responsive, and follows best coding practices.
 
 📁 Projects Overview
-1️⃣ Spotify Clone 🎵
+🔥 React / MERN Projects (Primary)
+1️⃣ Weather App ☁️🌦️
+
+Tech Stack: React.js, Material UI (MUI), OpenWeather API
+
+Description:
+A modern and responsive weather application that displays real-time weather information for any searched city.
+
+Features:
+
+Search weather by city name
+
+Real-time temperature, humidity & weather conditions
+
+Responsive design (mobile & desktop friendly)
+
+Error handling for invalid city names
+
+Clean UI built using Material UI
+
+2️⃣ SkillBoost 🎓
+
+Tech Stack: React.js, Node.js, Express.js, MongoDB
+
+Description:
+A learning platform that helps users acquire new skills through interactive courses.
+
+Features:
+
+User authentication (Login / Signup)
+
+Course browsing and enrollment
+
+Backend APIs using Node.js & Express
+
+🧩 Backend / Full-Stack Projects
+3️⃣ InstaBlog 📸
+
+Tech Stack: Node.js, Express.js, REST APIs, EJS
+
+Description:
+A mini Instagram-like blogging application where users can create, edit, and delete posts with images.
+
+Features:
+
+Full CRUD functionality
+
+Responsive UI
+
+Image uploads using Multer
+
+🎨 Frontend Projects
+4️⃣ Spotify Clone 🎵
 
 Tech Stack: HTML, CSS, JavaScript, Bootstrap
 
-Description: A simple frontend UI for a Spotify-like music streaming platform.
+Description:
+A frontend UI clone of a Spotify-like music streaming platform.
 
 Features:
 
@@ -17,79 +70,68 @@ Custom audio player
 
 Playlist UI
 
-2️⃣ SkillBoost 🎓
-
-Tech Stack: React.js, Node.js, Express.js, MongoDB
-
-Description: A learning platform that helps users acquire new skills through interactive courses.
-
-Features:
-
-User authentication (Login/Signup)
-
-Course browsing and enrollment
-
-Backend API with Node.js & Express
-
-3️⃣ InstaBlog 📸
-
-Tech Stack: Node.js, Express.js, REST APIs, EJS
-
-Description: A mini Instagram-like project that allows users to create, update, and delete posts with captions and images.
-
-Features:
-
-CRUD functionality
-
-Responsive UI
-
-File uploads with Multer
-
-4️⃣ Listify ✅
-
-Tech Stack: HTML, CSS, JavaScript
-
-Description: A simple to-do list app to organize daily tasks.
-
-Features:
-
-Add and delete tasks
-
-Local storage support
-
-Clean UI
-
-5️⃣ Simon Say Game 🎮
+5️⃣ Simon Says Game 🎮
 
 Tech Stack: HTML, CSS, JavaScript, jQuery
 
-Description: A memory-based game where users repeat sequences of colors and sounds.
+Description:
+A memory-based game where users repeat sequences of colors and sounds.
 
 Features:
 
-Level system
+Level-based progression
 
 Score tracking
 
 Sound effects
 
-6️⃣ Calculator 🧮
+6️⃣ Listify ✅
 
 Tech Stack: HTML, CSS, JavaScript
 
-Description: A basic calculator for performing arithmetic operations.
+Description:
+A simple to-do list app to manage daily tasks efficiently.
 
 Features:
 
-Addition, subtraction, multiplication, division
+Add & delete tasks
 
-Responsive design
+Local storage support
 
-7️⃣ Clock ⏰
+Clean UI
+
+7️⃣ To-Do App 📝
 
 Tech Stack: HTML, CSS, JavaScript
 
-Description: A digital clock showing real-time updates.
+Description:
+An enhanced version of a task management app with validation.
+
+Features:
+
+Add & delete tasks
+
+Prevents duplicate task entries
+
+8️⃣ Calculator 🧮
+
+Tech Stack: HTML, CSS, JavaScript
+
+Description:
+A basic calculator for performing arithmetic operations.
+
+Features:
+
+Addition, subtraction, multiplication & division
+
+Responsive layout
+
+9️⃣ Clock ⏰
+
+Tech Stack: HTML, CSS, JavaScript
+
+Description:
+A digital clock that displays real-time updates.
 
 Features:
 
@@ -97,51 +139,39 @@ Live time updates
 
 Stylish UI
 
-8️⃣ Search College Name 🎓
+🔟 Search College Name 🎓
 
 Tech Stack: HTML, CSS, JavaScript
 
-Description: A search application to quickly find college names.
+Description:
+A search application to quickly find college names.
 
 Features:
 
-Search functionality
+Fast search functionality
 
-Fast results
-
-9️⃣ To-Do App 📝
-
-Tech Stack: JavaScript, HTML, CSS
-
-Description: Another version of a task management app with improved functionality.
-
-Features:
-
-Add and delete tasks
-
-Prevents repetition in added tasks
-
+Instant results
 
 🛠️ Setup & Installation
 
-To run any of these projects locally:
+To run any project locally:
 
-Clone the repository: git clone https://github.com/CODER-RAHUL9038/PROJECTS.git
-
-Navigate to the project folder:cd PROJECT_NAME
+git clone https://github.com/CODER-RAHUL9038/PROJECTS.git
+cd PROJECT_NAME
 
 🤝 Contributing
 
-Feel free to contribute by opening an issue or submitting a pull request. Let's build great projects together! 🚀
+Contributions are welcome!
+Feel free to open an issue or submit a pull request.
 
 📜 License
 
 This repository is licensed under the MIT License.
 
-🔗 Connect with Me:
+🔗 Connect with Me
 
-GitHub: @CODER-RAHUL9038
+GitHub: https://github.com/CODER-RAHUL9038
 
 LinkedIn: Rahul Shaw
 
-Happy Coding! 👨‍💻🚀
+👨‍💻 Happy Coding! 🚀
