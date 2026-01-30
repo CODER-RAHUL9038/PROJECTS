@@ -1,16 +1,159 @@
-# React + Vite
+# ☁️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive Weather Application built using React.js and Material UI, allowing users to search for any city and view real-time weather information instantly.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+👉 Live Preview:  
+https://weatherapp-gules-sigma-87.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📸 Project Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 💻 Desktop View
+![Weather App Desktop](public/screenshots/weather-app-desktop.png)
+![Weather App Desktop Alt](public/screenshots/weather-app-desktop1.png)
+
+### 📱 Mobile View
+![Weather App Mobile](public/screenshots/weather-app-mobile.jpeg)
+![Weather App Mobile Alt](public/screenshots/weather-app-mobile1.jpeg)
+
+---
+
+## 🛠️ Tech Stack
+
+- React.js  
+- Material UI (MUI)  
+- OpenWeather API  
+- JavaScript (ES6+)  
+- CSS / MUI SX System  
+
+---
+
+## 📌 Features
+
+- Search weather by city name  
+- Displays temperature, humidity, and weather conditions  
+- Fully responsive design (mobile & desktop)  
+- Error handling for invalid or empty city names  
+- Loading states for better user experience  
+- Clean and modern UI using Material UI  
+- Optimized for mobile keyboard behavior  
+
+---
+
+## 🧠 What I Learned
+
+- Fetching and handling external APIs in React  
+- State management and conditional rendering  
+- Error handling and edge cases  
+- Using Material UI components and responsive breakpoints  
+- Improving mobile-first UX  
+- Writing clean, reusable React components  
+
+---
+
+## 📂 Project Structure
+
+weather-app/
+├── public/
+│   └── screenshots/
+│       ├── weather-app-desktop.png
+│       ├── weather-app-desktop1.png
+│       ├── weather-app-mobile.jpeg
+│       └── weather-app-mobile1.jpeg
+├── src/
+│   ├── components/
+│   │   ├── Weather.jsx
+│   │   ├── WeatherInfo.jsx
+│   │   ├── WeatherPlaceholder.jsx
+│   │   └── Credit.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── package.json
+└── README.md
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1. Clone the repository
+git clone https://github.com/CODER-RAHUL9038/weather-app.git
+
+### 2. Navigate to the project folder
+cd weather-app
+
+### 3. Install dependencies
+npm install
+
+### 4. Start the development server
+npm run dev
+
+The app will run on:
+http://localhost:5173/
+
+---
+
+## 🔐 Environment Variables
+
+Create a .env file in the root directory and add:
+
+VITE_WEATHER_API_KEY=your_openweather_api_key
+
+Get your API key from:
+https://openweathermap.org/api
+
+---
+
+## ❗ Error Handling
+
+- Shows user-friendly messages for invalid city names  
+- Prevents API calls when input is empty  
+- Gracefully handles API and network failures  
+
+---
+
+## 📱 Mobile Optimization
+
+- Auto-blur input after search to hide keyboard  
+- Prevents layout breaking on small screens  
+- Responsive spacing using MUI breakpoints  
+
+---
+
+## 🚧 Future Improvements
+
+- Auto-detect user location  
+- Dark / Light mode toggle  
+- 5-day weather forecast  
+- Weather animations and icons  
+- Recent search history  
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.  
+Feel free to fork this repository and submit a pull request.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+Rahul Shaw  
+GitHub: https://github.com/CODER-RAHUL9038  
+LinkedIn: Rahul Shaw  
+
+---
+
+⭐ If you like this project, don’t forget to star the repository!
