@@ -1,0 +1,4 @@
+node_modules/
+react-project/node_modules/
+react-project/package.json
+react-project/package-lock.json
