@@ -8,6 +8,11 @@ let btns = ["yellow","green","red","purple"]
 
 // FOR PRESS ANY KEY LOGIC
 document.addEventListener('keypress', startGame)
+document.addEventListener('click', function(e){
+    if(started == false && !e.target.classList.contains('btn')){
+        startGame()
+    }
+})
 document.addEventListener('touchstart', function(e){
     if(started == false && !e.target.classList.contains('btn')){
         e.preventDefault()

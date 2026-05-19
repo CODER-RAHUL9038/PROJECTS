@@ -5,6 +5,7 @@ const ASSETS = [
   './style.css',
   './app.js',
   './asset/bg.png',
+  './asset/favicon.png',
   './asset/monkey.gif',
   './asset/simon-1.jpg',
   './sound/button.mp3',
