@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon Says Game</title>
+    <title>MindMatrix</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="asset/simon-1.jpg">
 </head>
 <body>
-    <h1 >Simon Says</h1><br>
+    <h1 >MindMatrix</h1><br>
     <h2 >Press Any Key Or Tap To Start  </h2>
     <h3></h3>
     <div class="btn-container">
@@ -25,5 +28,14 @@
     
 
     <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('Service Worker registered', reg))
+                    .catch((err) => console.log('Service Worker registration failed', err));
+            });
+        }
+    </script>
 </body>
 </html>
