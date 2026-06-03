@@ -13,10 +13,20 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-  background-image: url("/bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #000; /* Fallback color */
+}
+
+/* ✅ Video Background Style */
+.video-bg {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
 }
 
 /* ✅ Blur layer (SAFE on mobile) */
@@ -29,7 +39,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-
+  background: rgba(0, 0, 0, 0.3); /* Darken slightly for better readability */
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   z-index: 0;
