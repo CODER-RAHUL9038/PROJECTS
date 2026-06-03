@@ -39,7 +39,7 @@ export default function WeatherBackground({ condition }) {
       {/* Primary Background Image for True Glassmorphism */}
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-1000 opacity-40 scale-105"
-        style={{ backgroundImage: "url('/bg2.jpg')" }}
+        style={{ backgroundImage: "url('/bg4.jpg')" }}
       />
 
       {/* Dynamic Blobs */}
