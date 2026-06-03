@@ -38,13 +38,13 @@ export default function WeatherBackground({ condition }) {
     <div className="fixed inset-0 w-full h-full bg-[#050816] overflow-hidden -z-10">
       {/* Primary Background Image for True Glassmorphism */}
       <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-1000 opacity-40 scale-105"
+        className="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-1000 opacity-60 scale-100"
         style={{ backgroundImage: "url('/bg4.jpg')" }}
       />
 
       {/* Dynamic Blobs */}
-      <div className={`absolute top-[-10%] left-[-10%] w-[50%] h-[50%] ${colors.primary} rounded-full blur-[150px] animate-blob opacity-40`} />
-      <div className={`absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] ${colors.secondary} rounded-full blur-[150px] animate-blob animation-delay-2000 opacity-40`} />
+      <div className={`absolute top-[-10%] left-[-10%] w-[50%] h-[50%] ${colors.primary} rounded-full blur-[150px] animate-blob opacity-30`} />
+      <div className={`absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] ${colors.secondary} rounded-full blur-[150px] animate-blob animation-delay-2000 opacity-30`} />
       
       {/* Mouse Responsive Glow */}
       <motion.div
@@ -57,8 +57,8 @@ export default function WeatherBackground({ condition }) {
         }}
       />
 
-      {/* Atmospheric Overlay */}
-      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+      {/* Subtle darkening for content contrast without hiding the image */}
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
     </div>
   );
 }
