@@ -3,7 +3,6 @@ import WeatherCard from "./WeatherCard";
 import SearchButton from "./SearchButton";
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import WeatherPlaceholder from "./WeatherPlaceholder";
 const API_URL = import.meta.env.VITE_WEATHER_API_URL;
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 import { Fade } from "@mui/material";
@@ -55,8 +54,7 @@ export default function WeatherApp() {
         }}
       >
         <Fade in={!Boolean(weather)} timeout={300}>
-          <Box sx={{ position: "absolute", width: "100%" }}>
-            <WeatherPlaceholder />
+          <Box sx={{ position: "absolute", width: "100%", mt: 10 }}>
             <Credit></Credit>
           </Box>
         </Fade>

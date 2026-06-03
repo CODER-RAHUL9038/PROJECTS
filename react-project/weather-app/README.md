@@ -60,7 +60,6 @@ weather-app/
 │   ├── WeatherApp.jsx        # Core logic & state management
 │   ├── WeatherCard.jsx       # Weather display component
 │   ├── SearchButton.jsx      # Search input & button component
-│   ├── WeatherPlaceholder.jsx # Skeleton/Loading placeholder
 │   ├── Credit.jsx            # Footer/Credit component
 │   ├── App.css               # Global & Component styles
 │   └── main.jsx              # Entry point
