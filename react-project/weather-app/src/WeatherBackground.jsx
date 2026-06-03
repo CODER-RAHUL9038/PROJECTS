@@ -36,37 +36,19 @@ export default function WeatherBackground({ condition }) {
 
   return (
     <div className="fixed inset-0 w-full h-full bg-[#050816] overflow-hidden -z-10">
-      {/* Dynamic Blobs */}
-      <div className={`absolute top-[-10%] left-[-10%] w-[50%] h-[50%] ${colors.primary} rounded-full blur-[150px] animate-blob opacity-60`} />
-      <div className={`absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] ${colors.secondary} rounded-full blur-[150px] animate-blob animation-delay-2000 opacity-60`} />
-      
-      {/* Animated Particles */}
-      <div className="absolute inset-0 opacity-20">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: Math.random() * window.innerHeight,
-              opacity: Math.random()
-            }}
-            animate={{ 
-              y: [null, Math.random() * -100],
-              opacity: [0.1, 0.5, 0.1]
-            }}
-            transition={{ 
-              duration: 5 + Math.random() * 10, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
-            className="absolute w-1 h-1 bg-white rounded-full"
-          />
-        ))}
-      </div>
+      {/* Primary Background Image for True Glassmorphism */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-1000 opacity-40 scale-105"
+        style={{ backgroundImage: "url('/bg2.jpg')" }}
+      />
 
+      {/* Dynamic Blobs */}
+      <div className={`absolute top-[-10%] left-[-10%] w-[50%] h-[50%] ${colors.primary} rounded-full blur-[150px] animate-blob opacity-40`} />
+      <div className={`absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] ${colors.secondary} rounded-full blur-[150px] animate-blob animation-delay-2000 opacity-40`} />
+      
       {/* Mouse Responsive Glow */}
       <motion.div
-        className="absolute w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen"
+        className="absolute w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen"
         style={{
           x: smoothX,
           y: smoothY,
@@ -75,8 +57,8 @@ export default function WeatherBackground({ condition }) {
         }}
       />
 
-      {/* Atmospheric Grain */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
+      {/* Atmospheric Overlay */}
+      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
     </div>
   );
 }

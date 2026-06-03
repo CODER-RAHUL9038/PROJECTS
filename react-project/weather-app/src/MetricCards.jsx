@@ -4,11 +4,10 @@ import {
   Droplets, 
   Wind, 
   Eye, 
-  Compass, 
   Sun, 
   ArrowUpRight, 
-  ArrowDownRight,
-  Gauge
+  Gauge,
+  Wind as WindIcon
 } from "lucide-react";
 
 const MetricCard = ({ icon: Icon, label, value, unit, color, index }) => (
@@ -16,25 +15,30 @@ const MetricCard = ({ icon: Icon, label, value, unit, color, index }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.05 }}
-    whileHover={{ y: -6, scale: 1.02 }}
-    className="p-6 rounded-[24px] bg-white/[0.04] backdrop-blur-[25px] border border-white/[0.08] group transition-all duration-500 overflow-hidden relative"
+    whileHover={{ y: -8, scale: 1.02 }}
+    className="p-6 rounded-[28px] bg-white/[0.04] backdrop-blur-[30px] border border-white/[0.1] shadow-2xl group transition-all duration-500 overflow-hidden relative"
   >
-    <div className="flex flex-col gap-6 relative z-10">
+    {/* Reflection Highlight */}
+    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/[0.05] to-transparent pointer-events-none" />
+    
+    <div className="flex flex-col gap-8 relative z-10">
       <div className="flex justify-between items-start">
-        <div className={`p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-500`}>
-          <Icon className={`w-5 h-5 text-${color}`} />
+        <div className={`p-3.5 rounded-2xl bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-500`}>
+          <Icon className={`w-6 h-6 text-${color}`} />
         </div>
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-           <ArrowUpRight className="w-4 h-4 text-white/40" />
+        <div className="opacity-0 group-hover:opacity-100 transition-all duration-500">
+           <ArrowUpRight className="w-5 h-5 text-white/30" />
         </div>
       </div>
       <div>
-        <p className="text-muted text-[10px] font-black uppercase tracking-[0.2em] mb-1.5 opacity-50">
+        <p className="text-muted text-[10px] font-black uppercase tracking-[0.25em] mb-2 opacity-50">
           {label}
         </p>
-        <div className="flex items-baseline gap-1">
-          <span className="text-2xl md:text-3xl font-black text-white group-hover:text-primary transition-colors">{value}</span>
-          <span className="text-muted text-xs font-bold uppercase tracking-tighter">{unit}</span>
+        <div className="flex items-baseline gap-1.5">
+          <span className="text-3xl md:text-4xl font-black text-white group-hover:text-primary transition-colors tracking-tighter">
+            {value}
+          </span>
+          <span className="text-muted text-xs font-black uppercase tracking-widest">{unit}</span>
         </div>
       </div>
     </div>
@@ -46,7 +50,6 @@ export default function MetricCards({ weather }) {
 
   const { main, wind, visibility, sys } = weather;
 
-  // Function to format sunrise/sunset
   const formatTime = (timestamp) => {
     return new Date(timestamp * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
@@ -61,7 +64,7 @@ export default function MetricCards({ weather }) {
   ];
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6 px-4 max-w-[1100px] mx-auto w-full">
+    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6 px-4 max-w-[1100px] mx-auto w-full mb-12">
       {metrics.map((m, i) => (
         <MetricCard key={i} {...m} index={i} />
       ))}

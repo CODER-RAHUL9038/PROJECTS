@@ -14,16 +14,16 @@ const ForecastItem = ({ time, temp, icon: condition, type }) => {
 
   return (
     <motion.div
-      whileHover={{ y: -5, background: "rgba(255,255,255,0.08)" }}
-      className={`flex ${type === 'hourly' ? 'flex-col items-center min-w-[100px] p-6' : 'justify-between items-center p-4 w-full'} rounded-3xl glass border-white/5 transition-all duration-300`}
+      whileHover={{ y: -5, background: "rgba(255,255,255,0.12)" }}
+      className={`flex ${type === 'hourly' ? 'flex-col items-center min-w-[110px] p-6' : 'justify-between items-center p-5 w-full'} rounded-[24px] glass border-white/10 transition-all duration-300 shadow-xl`}
     >
-      <span className="text-muted text-xs font-black uppercase tracking-widest mb-2">
+      <span className="text-muted text-[10px] font-black uppercase tracking-[0.2em] mb-3 opacity-60">
         {time}
       </span>
-      <div className="my-2 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+      <div className="my-3 filter drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]">
         {weatherIcons[condition] || weatherIcons.Clouds}
       </div>
-      <span className="text-xl font-black text-white mt-1">
+      <span className="text-2xl font-black text-white mt-1 tracking-tighter">
         {Math.round(temp)}°
       </span>
     </motion.div>
@@ -32,13 +32,15 @@ const ForecastItem = ({ time, temp, icon: condition, type }) => {
 
 export default function Forecast({ hourly, daily }) {
   return (
-    <div className="space-y-12 px-4 py-8">
+    <div className="space-y-16 px-4 py-12 max-w-[1100px] mx-auto w-full">
       {/* Hourly Forecast */}
       <section>
-        <h3 className="text-muted text-[10px] font-black uppercase tracking-[0.3em] mb-6 px-2">
-          Hourly Forecast <span className="text-primary/40">• Next 24 Hours</span>
-        </h3>
-        <div className="flex gap-4 overflow-x-auto pb-6 scrollbar-hide snap-x">
+        <div className="flex items-center justify-between mb-8 px-2">
+          <h3 className="text-muted text-[10px] font-black uppercase tracking-[0.4em]">
+            Hourly Forecast <span className="text-primary/40 mx-2">•</span> <span className="text-white/40">Next 24 Hours</span>
+          </h3>
+        </div>
+        <div className="flex gap-5 overflow-x-auto pb-8 scrollbar-hide snap-x px-2">
           {hourly?.map((item, i) => (
             <div key={i} className="snap-start">
               <ForecastItem
@@ -54,10 +56,12 @@ export default function Forecast({ hourly, daily }) {
 
       {/* Weekly Forecast */}
       <section>
-        <h3 className="text-muted text-[10px] font-black uppercase tracking-[0.3em] mb-6 px-2">
-          7-Day Forecast <span className="text-secondary/40">• Upcoming Week</span>
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="flex items-center justify-between mb-8 px-2">
+          <h3 className="text-muted text-[10px] font-black uppercase tracking-[0.4em]">
+            7-Day Forecast <span className="text-secondary/40 mx-2">•</span> <span className="text-white/40">Upcoming Week</span>
+          </h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2">
           {daily?.map((item, i) => (
             <ForecastItem
               key={i}

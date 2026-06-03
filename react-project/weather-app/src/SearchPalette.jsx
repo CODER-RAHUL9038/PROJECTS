@@ -58,38 +58,31 @@ export default function SearchPalette({ isOpen, setIsOpen, city, setCity, getWea
           {/* Search Panel */}
           <div className="fixed inset-0 flex items-start justify-center pt-[15vh] px-4 z-[101] pointer-events-none">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: -20, filter: "blur(10px)" }}
+              initial={{ opacity: 0, scale: 0.9, y: -20, filter: "blur(15px)" }}
               animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-              exit={{ opacity: 0, scale: 0.9, y: -20, filter: "blur(10px)" }}
+              exit={{ opacity: 0, scale: 0.9, y: -20, filter: "blur(15px)" }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="w-full max-w-2xl glass-card rounded-[2rem] overflow-hidden pointer-events-auto shadow-[0_32px_64px_-12px_rgba(0,0,0,0.6)]"
+              className="w-full max-w-2xl glass-card rounded-[32px] overflow-hidden pointer-events-auto shadow-[0_32px_128px_-12px_rgba(0,0,0,0.8)] border-white/20"
             >
-              <form onSubmit={handleSubmit} className="relative flex items-center p-6 border-b border-white/10">
-                <Search className="w-6 h-6 text-primary mr-4" />
+              <form onSubmit={handleSubmit} className="relative flex items-center p-8 border-b border-white/10 bg-white/[0.02]">
+                <Search className="w-8 h-8 text-primary mr-6 opacity-80" />
                 <input
                   ref={inputRef}
                   type="text"
-                  placeholder="Search city..."
+                  placeholder="Search for a city..."
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  className="flex-1 bg-transparent border-none outline-none text-2xl font-semibold text-white placeholder:text-muted/30"
+                  className="flex-1 bg-transparent border-none outline-none text-3xl font-black text-white placeholder:text-white/10 tracking-tighter"
                 />
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-4">
                   {loading ? (
-                    <Loader2 className="w-5 h-5 text-primary animate-spin" />
+                    <Loader2 className="w-6 h-6 text-primary animate-spin" />
                   ) : (
-                    <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-white/5 border border-white/10 text-muted/60 text-[10px] font-black uppercase tracking-tighter">
-                      <Command className="w-3 h-3" />
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-muted/60 text-[11px] font-black uppercase tracking-tighter">
+                      <Command className="w-3.5 h-3.5" />
                       <span>Enter</span>
                     </div>
                   )}
-                  <button
-                    type="button"
-                    onClick={() => setIsOpen(false)}
-                    className="p-1 hover:bg-white/10 rounded-full transition-colors"
-                  >
-                    <X className="w-5 h-5 text-muted" />
-                  </button>
                 </div>
               </form>
 

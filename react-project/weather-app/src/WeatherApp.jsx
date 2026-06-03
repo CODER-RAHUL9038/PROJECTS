@@ -105,7 +105,7 @@ export default function WeatherApp() {
         )}
       </AnimatePresence>
 
-      <main className="max-w-7xl mx-auto pt-12 pb-24 space-y-12">
+      <main className="max-w-7xl mx-auto pt-6 pb-20 space-y-6">
         <AnimatePresence mode="wait">
           {loading && !weather ? (
             <motion.div 
@@ -113,10 +113,10 @@ export default function WeatherApp() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex flex-col items-center justify-center min-h-[60vh] space-y-6"
+              className="flex flex-col items-center justify-center min-h-[80vh] space-y-6"
             >
               <Loader2 className="w-12 h-12 text-primary animate-spin" />
-              <p className="text-muted font-black uppercase tracking-[0.3em] text-xs">Architecting Atmosphere...</p>
+              <p className="text-muted font-black uppercase tracking-[0.3em] text-xs px-12 text-center">Architecting Atmospheric Reality...</p>
             </motion.div>
           ) : (
             <motion.div
@@ -124,11 +124,11 @@ export default function WeatherApp() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-16"
+              className="space-y-4 md:space-y-8"
             >
               <HeroSection weather={weather} />
               
-              <div className="space-y-24">
+              <div className="space-y-12 md:space-y-20">
                 <MetricCards weather={weather} />
                 <Forecast hourly={forecast?.hourly} daily={forecast?.daily} />
               </div>
