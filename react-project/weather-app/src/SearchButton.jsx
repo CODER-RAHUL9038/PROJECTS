@@ -1,134 +1,65 @@
-import { useState } from "react";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import { Collapse, Typography, InputAdornment } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import { Search, Loader2 } from "lucide-react";
 
-export default function SearchButton({ city, setCity, getWeather, error }) {
-  const [touched, setTouched] = useState(false);
+export default function SearchButton({ city, setCity, getWeather, error, loading }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    document.activeElement.blur(); //  hides keyboard in phones
     getWeather();
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        pt: { xs: 2, md: 4 },
-        pb: 1,
-      }}
-    >
-      <Box sx={{ display: "flex", alignItems: "center", mb: 2, gap: 1 }}>
-        <WbSunnyIcon sx={{ fontSize: { xs: 28, md: 36 }, color: "#ffb74d" }} />
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 900,
-            fontSize: { xs: "1.75rem", md: "2.25rem" },
-            letterSpacing: "-0.03em",
-            background: "linear-gradient(to right, #fff, #90caf9)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))",
-          }}
-        >
+    <div className="flex flex-col items-center">
+      {/* Hero Section Header */}
+      <div className="flex flex-col items-center mb-10 text-center">
+        <div className="p-4 rounded-3xl glass mb-6 relative">
+          <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
+          <span className="text-5xl md:text-6xl relative z-10">☀️</span>
+        </div>
+        <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-2 bg-gradient-to-r from-white via-white to-primary/50 bg-clip-text text-transparent">
           Weather Sky
-        </Typography>
-      </Box>
+        </h1>
+        <p className="text-muted font-medium text-lg tracking-wide uppercase text-sm">
+          Real-time weather forecasts worldwide
+        </p>
+      </div>
 
-      <Box
-        component="form"
+      {/* Search Bar Container */}
+      <form 
         onSubmit={handleSubmit}
-        sx={{
-          display: "flex",
-          gap: 1.5,
-          width: "100%",
-          maxWidth: 500,
-          px: 2,
-        }}
+        className="w-full max-w-xl group relative"
       >
-        <TextField
-          placeholder="Enter city..."
-          variant="outlined"
-          value={city}
-          size="small"
-          fullWidth
-          onChange={(e) => setCity(e.target.value)}
-          onBlur={() => setTouched(true)}
-          error={touched && !city}
-          slotProps={{
-            input: {
-              inputMode: "search",
-              enterKeyHint: "search",
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon sx={{ color: "rgba(255,255,255,0.6)", fontSize: 20 }} />
-                </InputAdornment>
-              ),
-            },
-          }}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              background: "rgba(255, 255, 255, 0.08)",
-              backdropFilter: "blur(25px)",
-              WebkitBackdropFilter: "blur(25px)",
-              borderRadius: "14px",
-              color: "#fff",
-              height: 48,
-              transition: "all 0.3s ease",
-              "& fieldset": { borderColor: "rgba(255, 255, 255, 0.15)" },
-              "&:hover fieldset": { borderColor: "rgba(255, 255, 255, 0.3)" },
-              "&.Mui-focused fieldset": { borderColor: "#90caf9", borderWidth: "2px" },
-            },
-          }}
-        />
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur opacity-0 group-focus-within:opacity-100 transition duration-500" />
+        
+        <div className="relative flex items-center p-2 rounded-3xl glass shadow-2xl transition-all duration-300 border-white/10 group-focus-within:border-white/20">
+          <div className="flex items-center flex-1 px-4">
+            <Search className="w-5 h-5 text-muted group-focus-within:text-primary transition-colors" />
+            <input
+              type="text"
+              placeholder="Search for a city..."
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="w-full bg-transparent border-none outline-none text-white px-4 py-3 text-lg placeholder:text-muted/50"
+            />
+          </div>
+          
+          <button
+            type="submit"
+            disabled={!city || loading}
+            className="flex items-center justify-center h-14 px-8 rounded-2xl bg-gradient-to-br from-primary to-secondary text-white font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:scale-100"
+          >
+            {loading ? (
+              <Loader2 className="w-6 h-6 animate-spin" />
+            ) : (
+              "Search"
+            )}
+          </button>
+        </div>
 
-        <Button
-          type="submit"
-          variant="contained"
-          disabled={!city}
-          sx={{
-            height: 48,
-            px: 3,
-            borderRadius: "14px",
-            background: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-            color: "#fff",
-            textTransform: "none",
-            fontWeight: 800,
-            boxShadow: "0 4px 20px rgba(0, 242, 254, 0.3)",
-            "&:hover": {
-              background: "linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)",
-              boxShadow: "0 6px 25px rgba(0, 242, 254, 0.5)",
-              transform: "translateY(-1px)",
-            },
-          }}
-        >
-          Search
-        </Button>
-      </Box>
-
-      <Collapse in={Boolean(error)}>
-        <Typography
-          variant="caption"
-          sx={{
-            mt: 1,
-            color: "#ffab91",
-            fontWeight: 600,
-            background: "rgba(255, 87, 34, 0.1)",
-            px: 1.5,
-            py: 0.5,
-            borderRadius: "6px",
-          }}
-        >
-          {error}
-        </Typography>
-      </Collapse>
-    </Box>
+        {error && (
+          <div className="absolute top-full left-0 right-0 mt-4 px-6 py-3 rounded-2xl bg-red-500/10 border border-red-500/20 backdrop-blur-md">
+            <p className="text-red-400 text-sm font-semibold text-center">{error}</p>
+          </div>
+        )}
+      </form>
+    </div>
   );
 }
