@@ -1,426 +1,126 @@
-You are an award-winning Senior Product Designer and Frontend Architect from Apple, Linear, Stripe, Vercel, Arc Browser and Nothing.
+The current hero section is visually unbalanced.
 
-Redesign my Weather App into a world-class premium weather experience.
-
-Current issue:
-The search box is always visible and takes too much attention.
-The app feels like a form with weather data instead of a modern product.
-
-Goal:
-Create a futuristic, immersive weather experience where content is the hero and controls appear only when needed.
-
-DESIGN PHILOSOPHY
-
-- Minimal
-- Elegant
-- Premium
-- Interactive
-- Motion-first
-- Apple-level polish
-- Dribbble quality
-- Awwwards quality
-- Mobile-first
-- Production-ready
-
---------------------------------------------------
-
-BACKGROUND
-
-Create a stunning atmospheric background.
+Redesign the hero section completely.
 
 Requirements:
 
-- Deep navy gradient
-- Dynamic weather-aware lighting
-- Aurora-style glow effects
-- Animated blurred blobs
-- Subtle floating particles
-- Mouse-responsive radial light
+- Remove giant oversized temperature
+- Remove huge faded weather icon in background
+- Use premium glassmorphism
 
-Example:
+Hero Container:
 
-When mouse moves:
-- Background glow follows cursor
-- Soft lighting reacts to movement
+width: min(1100px, 90vw)
 
-No stock images.
+background:
+rgba(255,255,255,0.06)
 
-Use only CSS gradients and effects.
+backdrop-filter:
+blur(30px)
 
---------------------------------------------------
+border:
+1px solid rgba(255,255,255,0.12)
 
-SEARCH EXPERIENCE
+border-radius:
+32px
 
-REMOVE permanently visible search bar.
+box-shadow:
+0 20px 60px rgba(0,0,0,0.4)
 
-Instead create:
+Inside Hero:
 
-Default State:
-- Only weather dashboard visible
-- No search box
+Top Row:
+Location
+Country
+Current Time
 
-On hover near top center:
-OR
-On pressing "/"
-OR
-On clicking floating search icon
+Center:
+Large Animated Weather Icon
 
-Animate a command-palette style search panel.
+Temperature:
+72px desktop
+56px tablet
+48px mobile
 
-Inspired by:
-- Raycast
-- Arc Browser
-- Spotlight Search
-- Linear
-
-Animation:
-
-opacity
-scale
-blur
-slide-down
-
-Duration:
-250ms
-
-Search panel style:
-
-- Glassmorphism
-- 24px radius
-- Strong blur
-- Gradient border
-- Floating effect
-
-Inside:
-
-Search Icon
-Input
-Recent Searches
-
-Example:
-
-Kolkata
-Mumbai
-Delhi
-Bangalore
-
---------------------------------------------------
-
-LAYOUT
-
-Max width:
-1200px
-
-Perfect vertical rhythm
-
-8px spacing system
-
-Lots of breathing room
-
---------------------------------------------------
-
-HERO SECTION
-
-Large animated weather icon
-
-Current condition
-
-Current temperature
-
-Example:
-
-☀
-
-31°
-
+Weather Condition:
 Clear Sky
 
-Pune, India
+Secondary Information:
+Feels Like
+High / Low
 
-Feels Like 34°
+Spacing must feel luxurious.
 
-Make temperature the primary focus.
-
---------------------------------------------------
-
-MAIN WEATHER CARD
-
-Premium floating glass card
-
-Requirements:
-
-backdrop blur
-
-gradient border
-
-soft shadows
-
-dynamic glow
-
-weather-dependent colors
+Use Apple-level spacing.
 
 --------------------------------------------------
 
-DASHBOARD SECTION
+Glass Effects
 
-Create modern metric cards.
+Apply true glassmorphism:
 
-Grid:
+background:
+rgba(255,255,255,0.05)
 
-Temperature
+backdrop-filter:
+blur(40px)
+
+border:
+1px solid rgba(255,255,255,0.12)
+
+Inner glow:
+rgba(255,255,255,0.04)
+
+Outer glow:
+rgba(79,140,255,0.15)
+
+--------------------------------------------------
+
+Metric Cards
+
 Humidity
 Wind
 Pressure
 Visibility
-UV Index
+UV
+Sunrise
 
 Each card:
 
-glassmorphism
+background:
+rgba(255,255,255,0.04)
 
-hover lift
+backdrop-filter:
+blur(25px)
 
-animated number transitions
+border-radius:
+24px
 
-gradient accent
+border:
+1px solid rgba(255,255,255,0.08)
 
---------------------------------------------------
-
-HOURLY FORECAST
-
-Horizontal scroll section.
-
-Each item:
-
-Time
-Weather Icon
-Temperature
-
-Smooth scrolling.
-
-Snap behavior.
+hover:
+translateY(-6px)
+scale(1.02)
 
 --------------------------------------------------
 
-7 DAY FORECAST
+Visual Style
 
-Modern forecast list.
+Reference:
 
-Each row:
+- Apple Weather
+- Nothing OS
+- Arc Browser
+- Linear
+- Stripe
 
-Day
-Weather Icon
-Condition
-Temperature
+Avoid:
 
-Animated hover state.
+- Huge typography
+- Empty space
+- Random floating elements
+- Giant faded icons
+- Cartoon appearance
 
---------------------------------------------------
-
-EXTRA PREMIUM SECTIONS
-
-Sunrise
-Sunset
-
-Air Quality
-
-Moon Phase
-
-Rain Chance
-
-Feels Like
-
---------------------------------------------------
-
-MICRO INTERACTIONS
-
-Every component must feel alive.
-
-Add:
-
-Button hover scale
-
-Card hover lift
-
-Parallax effects
-
-Mouse-follow glow
-
-Weather icon floating
-
-Smooth page transitions
-
-Animated counters
-
-Animated gradients
-
---------------------------------------------------
-
-CURSOR EFFECTS
-
-When mouse moves:
-
-Create soft radial spotlight.
-
-Cursor should influence nearby cards.
-
-Cards should slightly react to cursor position.
-
---------------------------------------------------
-
-WEATHER THEMES
-
-Dynamic UI based on weather.
-
-Sunny:
-Warm glow
-
-Rain:
-Blue glass
-
-Cloudy:
-Soft gray
-
-Storm:
-Purple accents
-
-Night:
-Dark blue aesthetic
-
---------------------------------------------------
-
-LOADING EXPERIENCE
-
-Replace spinner.
-
-Create skeleton loading.
-
-Shimmer animation.
-
-Weather icon placeholder.
-
---------------------------------------------------
-
-TYPOGRAPHY
-
-Font:
-
-Inter
-
-Weights:
-
-900 Hero Temperature
-
-800 Headings
-
-600 Labels
-
-400 Body
-
-Letter spacing optimized.
-
---------------------------------------------------
-
-COLORS
-
-Background:
-#050816
-
-Primary:
-#4F8CFF
-
-Secondary:
-#7C5CFF
-
-Accent:
-#00E5FF
-
-Text:
-#FFFFFF
-
-Muted:
-#94A3B8
-
---------------------------------------------------
-
-ANIMATIONS
-
-Use Framer Motion.
-
-Required:
-
-Page reveal
-
-Card stagger animation
-
-Search palette animation
-
-Metric card reveal
-
-Floating weather icon
-
-Mouse reactive effects
-
---------------------------------------------------
-
-TECH STACK
-
-React
-Vite
-TypeScript
-Tailwind CSS
-Framer Motion
-Lucide React
-
-Component Architecture:
-
-HeroSection
-
-WeatherOverview
-
-MetricCards
-
-HourlyForecast
-
-WeeklyForecast
-
-SearchPalette
-
-WeatherBackground
-
-AnimatedCursorGlow
-
-ThemeProvider
-
---------------------------------------------------
-
-OUTPUT
-
-Generate production-ready code.
-
-No placeholders.
-
-No beginner styling.
-
-No basic cards.
-
-No generic weather app design.
-
-The final result should look like a premium SaaS product that could win a Dribbble feature and impress senior frontend recruiters.
-
-Create a floating command palette search.
-
-Default:
-No search box visible.
-
-Press "/"
-OR
-Click floating search icon.
-
-Search palette smoothly appears.
-
-ESC closes it.
-
-Recent searches are remembered.
-
-Search feels identical to Raycast and Arc Browser.
+The UI must feel like a premium weather dashboard worth showcasing in a senior frontend developer portfolio.

@@ -10,7 +10,8 @@ import {
   Snowflake, 
   CloudDrizzle,
   Moon,
-  CloudMoon
+  CloudMoon,
+  ChevronDown
 } from "lucide-react";
 
 export default function HeroSection({ weather }) {
@@ -20,7 +21,6 @@ export default function HeroSection({ weather }) {
     if (!weather) return;
     
     const updateTime = () => {
-      // Calculate local time based on timezone offset (in seconds)
       const now = new Date();
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
       const cityTime = new Date(utc + (weather.timezone * 1000));
@@ -52,128 +52,79 @@ export default function HeroSection({ weather }) {
     Drizzle: <CloudDrizzle className="w-full h-full text-blue-300" />,
   };
 
-  const themeColor = {
-    Clear: "from-yellow-400/20 to-orange-500/0",
-    Clouds: "from-blue-400/20 to-slate-500/0",
-    Rain: "from-blue-600/20 to-cyan-500/0",
-    Thunderstorm: "from-purple-600/20 to-blue-500/0",
-    Snow: "from-white/20 to-blue-100/0",
-  }[condition] || "from-primary/20 to-secondary/0";
-
   return (
-    <div className="relative w-full py-16 md:py-32 flex flex-col items-center justify-center overflow-hidden">
-      {/* Background Glow Centerpiece */}
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial ${themeColor} blur-[120px] opacity-50 rounded-full pointer-events-none`} />
-
+    <div className="w-full flex justify-center px-4 py-8 md:py-16">
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-5xl px-4 flex flex-col items-center"
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full max-w-[1100px] glass-card rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] border-white/12 p-8 md:p-12 relative group"
       >
-        {/* Top Metadata Row */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full glass border-white/10"
+        {/* Inner Glow Effect */}
+        <div className="absolute inset-0 bg-white/[0.04] pointer-events-none" />
+        
+        {/* Top Row: Meta Info */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-16 relative z-10">
+          <div className="flex items-center gap-3 bg-white/5 px-5 py-2 rounded-full border border-white/10">
+            <MapPin className="w-4 h-4 text-primary" />
+            <span className="text-sm font-bold tracking-tight text-white/90">
+              {name}, {sys.country}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 bg-white/5 px-5 py-2 rounded-full border border-white/10">
+            <Clock className="w-4 h-4 text-secondary" />
+            <span className="text-sm font-bold tracking-tight text-white/90">
+              {localTime}
+            </span>
+          </div>
+        </div>
+
+        {/* Center Section: Animated Icon & Primary Stats */}
+        <div className="flex flex-col items-center relative z-10 text-center">
+          {/* Animated Weather Icon */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="w-24 h-24 md:w-32 md:h-32 mb-8 filter drop-shadow-[0_0_20px_rgba(79,140,255,0.3)]"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">Live Forecast</span>
+            {weatherIcons[condition] || weatherIcons.Clouds}
           </motion.div>
-          
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full glass border-white/10 text-white/90">
-            <MapPin className="w-3 h-3 text-primary" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em]">{name}, {sys.country}</span>
-          </div>
 
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full glass border-white/10 text-white/90">
-            <Clock className="w-3 h-3 text-secondary" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em]">{localTime}</span>
-          </div>
-        </div>
+          {/* Temperature */}
+          <h1 className="text-5xl md:text-7xl lg:text-[72px] font-black text-white tracking-tighter mb-4 leading-none">
+            {Math.round(main.temp)}°
+          </h1>
 
-        {/* Main Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-8 md:gap-0 w-full">
-          
-          {/* Left info */}
-          <div className="hidden lg:flex flex-col items-end text-right space-y-6">
-            <div className="space-y-1">
-              <p className="text-muted text-xs font-black uppercase tracking-widest">Description</p>
-              <h3 className="text-2xl font-bold text-white capitalize">{conditions[0].description}</h3>
+          {/* Condition Description */}
+          <p className="text-2xl md:text-3xl font-bold text-white/90 capitalize mb-8">
+            {conditions[0].description}
+          </p>
+
+          {/* Secondary Stats Row */}
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-muted/80">
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] opacity-60">Feels Like</span>
+              <span className="text-lg font-bold text-white">{Math.round(main.feels_like)}°</span>
             </div>
-            <div className="space-y-1">
-              <p className="text-muted text-xs font-black uppercase tracking-widest">High / Low</p>
-              <h3 className="text-2xl font-bold text-white">
-                H:{Math.round(main.temp_max)}° <span className="text-white/30 mx-1">/</span> L:{Math.round(main.temp_min)}°
-              </h3>
-            </div>
-          </div>
-
-          {/* Centerpiece: Temp & Icon */}
-          <div className="relative flex flex-col items-center">
-             {/* Huge Icon Layer (Depth) */}
-             <motion.div
-               animate={{ 
-                 y: [0, -20, 0],
-                 rotate: [0, 5, 0]
-               }}
-               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 opacity-20 blur-[2px] pointer-events-none"
-             >
-               {weatherIcons[condition] || weatherIcons.Clouds}
-             </motion.div>
-
-             {/* Huge Temperature */}
-             <div className="relative">
-                <motion.h2 
-                  initial={{ letterSpacing: "0.2em", opacity: 0 }}
-                  animate={{ letterSpacing: "-0.05em", opacity: 1 }}
-                  transition={{ duration: 1.2, ease: "circOut" }}
-                  className="text-[10rem] md:text-[16rem] font-black leading-none text-white tracking-tighter drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent"
-                >
-                  {Math.round(main.temp)}°
-                </motion.h2>
-                
-                {/* Visual Accent */}
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1.5 bg-primary rounded-full blur-sm opacity-50" />
-             </div>
-          </div>
-
-          {/* Right info */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-            <div className="space-y-1">
-              <p className="text-muted text-xs font-black uppercase tracking-widest">Feels Like</p>
-              <h3 className="text-2xl md:text-4xl font-black text-white">{Math.round(main.feels_like)}°</h3>
-            </div>
-            <div className="lg:hidden space-y-1">
-              <p className="text-muted text-xs font-black uppercase tracking-widest">Condition</p>
-              <h3 className="text-2xl font-bold text-white capitalize">{conditions[0].description}</h3>
-            </div>
-            <div className="flex items-center gap-4 p-4 rounded-2xl glass border-white/5">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                 <div className="w-5 h-5 text-primary">
-                    {weatherIcons[condition] || weatherIcons.Clouds}
-                 </div>
-              </div>
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-muted">Humidity</p>
-                <p className="text-lg font-bold text-white">{main.humidity}%</p>
+            
+            <div className="w-px h-8 bg-white/10 hidden sm:block" />
+            
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] opacity-60">High / Low</span>
+              <div className="flex items-center gap-2">
+                <span className="text-lg font-bold text-white">H: {Math.round(main.temp_max)}°</span>
+                <span className="text-white/20">•</span>
+                <span className="text-lg font-bold text-white">L: {Math.round(main.temp_min)}°</span>
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div 
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="mt-20 flex flex-col items-center gap-2 opacity-30 hover:opacity-100 transition-opacity cursor-pointer"
-        >
-          <span className="text-[10px] font-black uppercase tracking-[0.3em]">Insights Below</span>
-          <div className="w-px h-12 bg-gradient-to-b from-white to-transparent" />
-        </motion.div>
+        {/* Bottom Reveal Indicator */}
+        <div className="mt-16 flex flex-col items-center opacity-30 group-hover:opacity-60 transition-opacity">
+           <ChevronDown className="w-6 h-6 animate-bounce" />
+        </div>
       </motion.div>
     </div>
   );
