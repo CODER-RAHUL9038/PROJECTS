@@ -3,175 +3,120 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import ThermostatIcon from "@mui/icons-material/Thermostat";
+import WaterDropIcon from "@mui/icons-material/WaterDrop";
+import AirIcon from "@mui/icons-material/Air";
 
 export default function WeatherCard({ weather }) {
   if (!weather) return null;
 
   const description = weather.weather[0].description;
   const icon = weather.weather[0].icon;
-  const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+  const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
   const weatherImages = {
-    Clear:
-      "https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=600&auto=format&fit=crop&q=60",
-
-    Clouds:
-      "https://images.unsplash.com/photo-1499346030926-9a72daac6c63?w=600&q=55&auto=format&fit=crop",
-
-    Rain: "https://images.unsplash.com/photo-1576514864427-f0809d2b66eb?w=600&q=55&auto=format&fit=crop",
-
-    Snow: "https://images.unsplash.com/photo-1482784160316-6eb046863ece?w=600&q=55&auto=format&fit=crop",
-
-    Thunderstorm:
-      "https://images.unsplash.com/photo-1500674425229-f692875b0ab7?w=600&q=50&auto=format&fit=crop",
-
-    Drizzle:
-      "https://media.istockphoto.com/id/516351793/photo/majestic-storm-clouds.jpg?s=612x612&w=0&k=20&c=jJmcqJVMhjJjntlibEE287ZYE9dG9Jl-DraUk9VcCWI=",
-
-    Mist: "https://images.unsplash.com/photo-1482841628122-9080d44bb807?w=600&q=55&auto=format&fit=crop",
-
-    Haze: "https://media.istockphoto.com/id/2186506425/photo/foggy-weather-lanterns-by-the-road-night-city.jpg?s=612x612&w=0&k=20&c=33_DBcM5kxShmf5ExiKJprgT_ENyXFT5qQlDk_VJe2Q=",
-    Smoke:
-      "https://images.unsplash.com/photo-1565115399809-04a714aaa956?w=600&q=60&auto=format&fit=crop",
-
-    Dust: "https://images.unsplash.com/photo-1603695820889-f8a0a86b8712?w=600&q=60&auto=format&fit=crop",
-
-    Sand: "https://images.unsplash.com/photo-1511514323702-88e7e52f5223?w=600&q=60&auto=format&fit=crop",
-
-    Ash: "https://images.unsplash.com/photo-1684636553231-7612951229d2?w=600&q=60&auto=format&fit=crop",
-
-    Tornado:
-      "https://images.unsplash.com/photo-1527482937786-6608f6e14c15?w=600&q=60&auto=format&fit=crop",
-
-    Squall:
-      "https://images.unsplash.com/photo-1549356384-62459eaf492f?w=600&q=60&auto=format&fit=crop",
+    Clear: "https://images.unsplash.com/photo-1601297183305-6df142704ea2?w=800&q=80",
+    Clouds: "https://images.unsplash.com/photo-1499346030926-9a72daac6c63?w=800&q=80",
+    Rain: "https://images.unsplash.com/photo-1576514864427-f0809d2b66eb?w=800&q=80",
+    Snow: "https://images.unsplash.com/photo-1482784160316-6eb046863ece?w=800&q=80",
+    Thunderstorm: "https://images.unsplash.com/photo-1500674425229-f692875b0ab7?w=800&q=80",
+    Drizzle: "https://images.unsplash.com/photo-1541339907198-e087563f3f3b?w=800&q=80",
+    Mist: "https://images.unsplash.com/photo-1482841628122-9080d44bb807?w=800&q=80",
+    Haze: "https://images.unsplash.com/photo-1532592999526-7d49ee8d27d4?w=800&q=80",
   };
 
   const condition = weather.weather[0].main;
-  const imageUrl =
-    weatherImages[condition] ||
-    "https://images.unsplash.com/photo-1536424868245-13b715e11e71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHJhaW58ZW58MHwwfDB8fHww";
+  const imageUrl = weatherImages[condition] || "https://images.unsplash.com/photo-1534088568595-a066f710b81f?w=800&q=80";
 
   return (
     <Box
       sx={{
-        maxHeight: "100dvh",
         display: "flex",
         justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        mt: 4,
+        alignItems: "flex-start",
+        mt: { xs: 2, md: 4 },
+        px: 2,
+        maxHeight: "calc(100vh - 200px)",
       }}
     >
       <Card
         sx={{
-          
-          minWidth: {
-            xs: 330, // mobile
-            sm: 700, // 📲 tablet bigger
-            md: 500, // desktop back to normal (optional)
-            xl:800
+          width: "100%",
+          maxWidth: 450,
+          background: "rgba(255, 255, 255, 0.07)",
+          backdropFilter: "blur(30px)",
+          WebkitBackdropFilter: "blur(30px)",
+          borderRadius: "32px",
+          border: "1px solid rgba(255, 255, 255, 0.12)",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+          overflow: "hidden",
+          position: "relative",
+          transition: "transform 0.4s ease",
+          "&:hover": {
+            transform: "translateY(-5px)",
           },
-
-           minHeight: {
-              xs: 350, // mobile
-              sm: 800, // 📲 tablet taller
-              md: 100,
-            },
-
-          /* 🔮 Glass effect */
-          background: "rgba(255, 255, 255, 0.25)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-
-          borderRadius: "20px",
-          border: "1px solid rgba(255, 255, 255, 0.3)",
-
-          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
         }}
       >
         <CardMedia
           component="img"
           sx={{
-            maxHeight: {
-              xs: 210, // mobile
-              sm: 480, // 📲 tablet taller
-              md: 160,
-              xl:300
-            },
-            borderTopLeftRadius: "20px",
-            borderTopRightRadius: "20px",
-            filter: "blur(4px)",
-            transition: "filter 0.3s ease",
-            "&.loaded": {
-              filter: "blur(0)",
-            },
+            height: 180,
+            objectFit: "cover",
+            filter: "brightness(0.8)",
           }}
-          onLoad={(e) => e.target.classList.add("loaded")}
-          loading="lazy"
-          src={imageUrl}
+          image={imageUrl}
+          alt={condition}
         />
 
-        <CardContent
-          sx={{
-            p: {
-              xs: 2, // 📱 mobile (16px)
-              sm: 1, // 💻 desktop (8px)
-            },
-            color: "#fff", // Set default text color to white
-            "&:last-child": {
-              pb: {
-                xs: 2,
-                sm: 1,
-              },
-            },
-          }}
-        >
-          <Typography variant="h5" gutterBottom sx={{ fontWeight: 700 }}>
-            {weather.name}
-          </Typography>
-
-          {/* Temperature */}
-          <Typography variant="h3" sx={{ fontWeight: 800 }}>
-            {Math.round(weather.main.temp)}°C
-          </Typography>
-
-          {/* Icon + description */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 1,
-            }}
-          >
-            <img src={iconUrl} alt="weather icon" width={48} />
-            <Typography
-              variant="body1"
-              sx={{ textTransform: "capitalize", fontWeight: 500 }}
-            >
-              {description}
-            </Typography>
+        <CardContent sx={{ p: 3, pt: 2, color: "#fff" }}>
+          {/* Main Info */}
+          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", mb: 2 }}>
+            <Box>
+              <Typography variant="h4" sx={{ fontWeight: 800, mb: 0.5 }}>
+                {weather.name}
+              </Typography>
+              <Typography variant="body2" sx={{ opacity: 0.8, textTransform: "capitalize", fontWeight: 500 }}>
+                {description}
+              </Typography>
+            </Box>
+            <Box component="img" src={iconUrl} sx={{ width: 80, height: 80, mt: -2, filter: "drop-shadow(0 0 15px rgba(255,255,255,0.4))" }} />
           </Box>
 
-          {/* Details */}
+          <Typography variant="h2" sx={{ fontWeight: 900, mb: 3, textAlign: "left", letterSpacing: "-2px" }}>
+            {Math.round(weather.main.temp)}°
+          </Typography>
+
+          <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 3 }} />
+
+          {/* Grid Details */}
           <Box
             sx={{
-              mt: 1,
-              p: 1.5,
-              borderRadius: "12px",
-              background: "rgba(255, 255, 255, 0.1)",
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 2,
             }}
           >
-            <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.9)" }}>
-              Feels like: {weather.main.feels_like}°C
-            </Typography>
-            <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.9)" }}>
-              Max: {weather.main.temp_max}°C | Min: {weather.main.temp_min}°C
-            </Typography>
-            <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.9)" }}>
-              Humidity: {weather.main.humidity}%
-            </Typography>
+            <Box sx={{ textAlign: "center" }}>
+              <ThermostatIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.7 }} />
+              <Typography variant="caption" display="block" sx={{ opacity: 0.6 }}>Feels Like</Typography>
+              <Typography variant="body1" sx={{ fontWeight: 700 }}>{Math.round(weather.main.feels_like)}°</Typography>
+            </Box>
+            <Box sx={{ textAlign: "center" }}>
+              <WaterDropIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.7 }} />
+              <Typography variant="caption" display="block" sx={{ opacity: 0.6 }}>Humidity</Typography>
+              <Typography variant="body1" sx={{ fontWeight: 700 }}>{weather.main.humidity}%</Typography>
+            </Box>
+            <Box sx={{ textAlign: "center" }}>
+              <AirIcon sx={{ fontSize: 24, mb: 0.5, opacity: 0.7 }} />
+              <Typography variant="caption" display="block" sx={{ opacity: 0.6 }}>Wind</Typography>
+              <Typography variant="body1" sx={{ fontWeight: 700 }}>{Math.round(weather.wind.speed)} km/h</Typography>
+            </Box>
+          </Box>
+          
+          <Box sx={{ mt: 3, display: "flex", justifyContent: "space-between", opacity: 0.6 }}>
+             <Typography variant="caption">H: {Math.round(weather.main.temp_max)}°</Typography>
+             <Typography variant="caption">L: {Math.round(weather.main.temp_min)}°</Typography>
           </Box>
         </CardContent>
       </Card>

@@ -20,21 +20,22 @@ export default function SearchButton({ city, setCity, getWeather, error }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        pt: { xs: 4, md: 6 },
-        pb: 2,
+        pt: { xs: 2, md: 4 },
+        pb: 1,
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "center", mb: 4, gap: 1.5 }}>
-        <WbSunnyIcon sx={{ fontSize: 40, color: "#ffb74d" }} />
+      <Box sx={{ display: "flex", alignItems: "center", mb: 2, gap: 1 }}>
+        <WbSunnyIcon sx={{ fontSize: { xs: 28, md: 36 }, color: "#ffb74d" }} />
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{
-            fontWeight: 800,
-            letterSpacing: "-0.02em",
-            background: "linear-gradient(45deg, #fff, #90caf9)",
+            fontWeight: 900,
+            fontSize: { xs: "1.75rem", md: "2.25rem" },
+            letterSpacing: "-0.03em",
+            background: "linear-gradient(to right, #fff, #90caf9)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            textShadow: "0 10px 20px rgba(0,0,0,0.2)",
+            filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))",
           }}
         >
           Weather Sky
@@ -46,17 +47,17 @@ export default function SearchButton({ city, setCity, getWeather, error }) {
         onSubmit={handleSubmit}
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          gap: 2,
+          gap: 1.5,
           width: "100%",
-          maxWidth: 600,
+          maxWidth: 500,
           px: 2,
         }}
       >
         <TextField
-          placeholder="Search city..."
+          placeholder="Enter city..."
           variant="outlined"
           value={city}
+          size="small"
           fullWidth
           onChange={(e) => setCity(e.target.value)}
           onBlur={() => setTouched(true)}
@@ -67,44 +68,23 @@ export default function SearchButton({ city, setCity, getWeather, error }) {
               enterKeyHint: "search",
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon sx={{ color: "rgba(255,255,255,0.7)" }} />
+                  <SearchIcon sx={{ color: "rgba(255,255,255,0.6)", fontSize: 20 }} />
                 </InputAdornment>
               ),
             },
           }}
           sx={{
-            /* Glass input */
             "& .MuiOutlinedInput-root": {
-              background: "rgba(255, 255, 255, 0.1)",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-              borderRadius: "16px",
+              background: "rgba(255, 255, 255, 0.08)",
+              backdropFilter: "blur(25px)",
+              WebkitBackdropFilter: "blur(25px)",
+              borderRadius: "14px",
               color: "#fff",
-              fontSize: "1.1rem",
+              height: 48,
               transition: "all 0.3s ease",
-
-              "& fieldset": {
-                borderColor: "rgba(255, 255, 255, 0.2)",
-              },
-              "&:hover fieldset": {
-                borderColor: "rgba(255, 255, 255, 0.4)",
-              },
-              "&.Mui-focused": {
-                background: "rgba(255, 255, 255, 0.15)",
-                boxShadow: "0 0 20px rgba(144, 202, 249, 0.2)",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#90caf9",
-                borderWidth: "2px",
-              },
-              "& .MuiInputBase-input::placeholder": {
-                color: "rgba(255, 255, 255, 0.5)",
-                opacity: 1,
-              },
-            },
-            "& .MuiFormHelperText-root": {
-              color: "#ffab91",
-              fontWeight: 500,
+              "& fieldset": { borderColor: "rgba(255, 255, 255, 0.15)" },
+              "&:hover fieldset": { borderColor: "rgba(255, 255, 255, 0.3)" },
+              "&.Mui-focused fieldset": { borderColor: "#90caf9", borderWidth: "2px" },
             },
           }}
         />
@@ -114,28 +94,18 @@ export default function SearchButton({ city, setCity, getWeather, error }) {
           variant="contained"
           disabled={!city}
           sx={{
-            height: { sm: 56 },
-            px: 4,
-            borderRadius: "16px",
-            background: "linear-gradient(135deg, #90caf9, #42a5f5)",
+            height: 48,
+            px: 3,
+            borderRadius: "14px",
+            background: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
             color: "#fff",
-            fontSize: "1rem",
-            boxShadow: "0 8px 32px rgba(66, 165, 245, 0.3)",
             textTransform: "none",
-            fontWeight: 700,
-            transition: "all 0.3s ease",
-
+            fontWeight: 800,
+            boxShadow: "0 4px 20px rgba(0, 242, 254, 0.3)",
             "&:hover": {
-              background: "linear-gradient(135deg, #42a5f5, #1e88e5)",
-              transform: "translateY(-2px)",
-              boxShadow: "0 12px 40px rgba(66, 165, 245, 0.4)",
-            },
-            "&:active": {
-              transform: "translateY(0)",
-            },
-            "&.Mui-disabled": {
-              background: "rgba(255,255,255,0.1)",
-              color: "rgba(255,255,255,0.3)",
+              background: "linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)",
+              boxShadow: "0 6px 25px rgba(0, 242, 254, 0.5)",
+              transform: "translateY(-1px)",
             },
           }}
         >
@@ -145,15 +115,15 @@ export default function SearchButton({ city, setCity, getWeather, error }) {
 
       <Collapse in={Boolean(error)}>
         <Typography
+          variant="caption"
           sx={{
-            mt: 2,
+            mt: 1,
             color: "#ffab91",
             fontWeight: 600,
             background: "rgba(255, 87, 34, 0.1)",
-            px: 2,
-            py: 1,
-            borderRadius: "8px",
-            border: "1px solid rgba(255, 87, 34, 0.2)",
+            px: 1.5,
+            py: 0.5,
+            borderRadius: "6px",
           }}
         >
           {error}
