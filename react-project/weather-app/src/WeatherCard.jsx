@@ -118,6 +118,7 @@ export default function WeatherCard({ weather }) {
               xs: 2, // 📱 mobile (16px)
               sm: 1, // 💻 desktop (8px)
             },
+            color: "#fff", // Set default text color to white
             "&:last-child": {
               pb: {
                 xs: 2,
@@ -126,12 +127,12 @@ export default function WeatherCard({ weather }) {
             },
           }}
         >
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h5" gutterBottom sx={{ fontWeight: 700 }}>
             {weather.name}
           </Typography>
 
           {/* Temperature */}
-          <Typography variant="h3">
+          <Typography variant="h3" sx={{ fontWeight: 800 }}>
             {Math.round(weather.main.temp)}°C
           </Typography>
 
@@ -145,18 +146,30 @@ export default function WeatherCard({ weather }) {
             }}
           >
             <img src={iconUrl} alt="weather icon" width={48} />
-            <Typography variant="body1">{description}</Typography>
+            <Typography
+              variant="body1"
+              sx={{ textTransform: "capitalize", fontWeight: 500 }}
+            >
+              {description}
+            </Typography>
           </Box>
 
           {/* Details */}
-          <Box sx={{ mt: 1 }}>
-            <Typography variant="body2" color="text.secondary">
+          <Box
+            sx={{
+              mt: 1,
+              p: 1.5,
+              borderRadius: "12px",
+              background: "rgba(255, 255, 255, 0.1)",
+            }}
+          >
+            <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.9)" }}>
               Feels like: {weather.main.feels_like}°C
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.9)" }}>
               Max: {weather.main.temp_max}°C | Min: {weather.main.temp_min}°C
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.9)" }}>
               Humidity: {weather.main.humidity}%
             </Typography>
           </Box>

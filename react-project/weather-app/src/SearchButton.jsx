@@ -97,6 +97,10 @@ export default function SearchButton({ city, setCity, getWeather, error }) {
                 borderColor: "#90caf9",
                 borderWidth: "2px",
               },
+              "& .MuiInputBase-input::placeholder": {
+                color: "rgba(255, 255, 255, 0.5)",
+                opacity: 1,
+              },
             },
             "& .MuiFormHelperText-root": {
               color: "#ffab91",
