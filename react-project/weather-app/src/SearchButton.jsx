@@ -8,7 +8,7 @@ export default function SearchButton({ city, setCity, getWeather, error }) {
   const [touched, setTouched] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    document.activeElement.blur(); // 📱 hides keyboard
+    document.activeElement.blur(); //  hides keyboard in phones
     getWeather();
   };
 

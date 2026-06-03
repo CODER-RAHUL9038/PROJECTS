@@ -12,7 +12,7 @@ import Credit from "./Credit.jsx";
 export default function WeatherApp() {
   let [city, setCity] = useState("");
   let [weather, setWeather] = useState(null);
-  const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState("");
 
   let getWeather = async () => {
@@ -28,7 +28,7 @@ export default function WeatherApp() {
         throw new Error("City not found");
       }
       const data = await response.json();
-      console.log(data);
+    
       setWeather(data);
     } catch (error) {
       setError(error.message);
