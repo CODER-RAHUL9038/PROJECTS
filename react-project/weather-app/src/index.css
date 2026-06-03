@@ -1,10 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4f8cff;
+  --color-secondary: #7c5cff;
+  --color-accent: #00e5ff;
+  --color-background: #050816;
+  --color-muted: #94a3b8;
+  
+  --font-inter: "Inter", sans-serif;
+}
 
 @layer base {
   body {
-    @apply bg-[#050816] text-white font-inter overflow-x-hidden antialiased;
+    background-color: var(--color-background);
+    color: white;
+    font-family: var(--font-inter);
+    @apply overflow-x-hidden antialiased;
   }
 }
 
