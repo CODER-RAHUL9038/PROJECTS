@@ -38,7 +38,6 @@ export default function WeatherApp() {
       sx={{
         minHeight: "100dvh",
         display: "flex",
-
         flexDirection: "column",
       }}
     >
@@ -48,23 +47,17 @@ export default function WeatherApp() {
         getWeather={getWeather}
         error={error}
       ></SearchButton>
-      <Box
-        sx={{
-          position: "relative",
-        }}
-      >
-        <Fade in={!Boolean(weather)} timeout={300}>
-          <Box sx={{ position: "absolute", width: "100%", mt: 10 }}>
-            <Credit></Credit>
-          </Box>
-        </Fade>
 
+      <Box sx={{ flexGrow: 1, position: "relative" }}>
         <Fade in={Boolean(weather)} timeout={300}>
           <Box>
             <WeatherCard city={city} weather={weather} />
-            <Credit></Credit>
           </Box>
         </Fade>
+      </Box>
+
+      <Box sx={{ pb: 3, textAlign: "center" }}>
+        <Credit />
       </Box>
     </Box>
   );
